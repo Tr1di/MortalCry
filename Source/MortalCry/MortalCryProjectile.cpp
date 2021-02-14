@@ -34,9 +34,20 @@ AMortalCryProjectile::AMortalCryProjectile()
 void AMortalCryProjectile::OnHit_Implementation(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 	// Only add impulse and destroy projectile if we hit a physics
-	if ( OtherActor && OtherActor != this && OtherComp && OtherComp->IsSimulatingPhysics() )
+	if ( OtherActor && OtherActor != this )
 	{
-		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+		if ( OtherComp && OtherComp->IsSimulatingPhysics() )
+		{
+			OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+		}
+		
+		if ( OtherActor->CanBeDamaged() )
+		{
+			FPointDamageEvent DamageEvent = FPointDamageEvent();
+			DamageEvent.Damage = 100.f;
+			DamageEvent.HitInfo = Hit;
+			OtherActor->TakeDamage(100.f, DamageEvent, nullptr, this);
+		}
 
 		//Destroy();
 	}

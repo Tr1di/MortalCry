@@ -105,6 +105,7 @@ void ASupportPawn::ServerDoPossess_Implementation(APawn* InPawn)
 			SetOwner(InPawn->GetOwner());
 		}
 		Controller->Possess(InPawn);
+		Destroy();
 	}
 }
 

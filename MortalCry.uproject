@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "4.26",
+	"EngineAssociation": "{7C742B93-4791-A47D-E4FE-EC9510641EDE}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -17,6 +17,20 @@
 		{
 			"Name": "SQLiteCore",
 			"Enabled": true
+		},
+		{
+			"Name": "SimpleUGC",
+			"Enabled": true
 		}
+	],
+	"AdditionalPluginDirectories": [
+		"Mods"
+	],
+	"TargetPlatforms": [
+		"AllDesktop",
+		"LinuxNoEditor",
+		"LinuxAArch64NoEditor",
+		"MacNoEditor",
+		"WindowsNoEditor"
 	]
 }

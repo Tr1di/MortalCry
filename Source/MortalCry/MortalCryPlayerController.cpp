@@ -7,6 +7,8 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Net/UnrealNetwork.h"
 #include "TimerManager.h"
+#include "GameFramework/GameModeBase.h"
+#include "Kismet/GameplayStatics.h"
 
 AMortalCryPlayerController::AMortalCryPlayerController(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -29,7 +31,7 @@ void AMortalCryPlayerController::SetupInputComponent()
 	Super::SetupInputComponent();
 	
 	//InputComponent->BindAction("Interact", IE_DoubleClick, this, &AMortalCryPlayerController::DoPossess);
-	InputComponent->BindAction("PossessMain", IE_DoubleClick, this, &AMortalCryPlayerController::DoUnPossess);
+	InputComponent->BindAction("PossessMain", IE_DoubleClick, this, &AController::UnPossess);
 }
 
 APawn* AMortalCryPlayerController::Trace_Implementation()
@@ -78,6 +80,14 @@ void AMortalCryPlayerController::Interact_Internal()
 void AMortalCryPlayerController::OnUnPossess()
 {
 	Super::OnUnPossess();
+	
+	// if ( GetPawn() != MainPawn )
+	// {
+	// 	const FTransform Transform = GetPawn()->GetTransform();
+	// 	Super::OnUnPossess();
+	// 	
+	// 	UGameplayStatics::GetGameMode(GetWorld())->SpawnDefaultPawnAtTransform(this, Transform);
+	// }
 	OnInteract.Clear();
 	OnEndInteract.Clear();
 }

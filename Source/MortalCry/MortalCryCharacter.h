@@ -48,20 +48,26 @@ class AMortalCryCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 	
-	UPROPERTY(EditAnywhere, Replicated, BlueprintReadWrite, Category = Weapon, meta = (AllowPrivateAccess="true", MustImplement = "WeaponBase"))
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadWrite, Category = Weapon, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
 	AActor* ActualWeapon;
 	
-	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess="true", MustImplement = "WeaponBase"))
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
 	TArray<AActor*> Weapons;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess="true"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	TMap<TSubclassOf<AActor>, uint8> Items;
 
-	UPROPERTY(BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess="true", MustImplement = "Interactive"))
+	UPROPERTY(BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true", MustImplement = "Interactive"))
 	AActor* ActualInteractiveActor;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess="true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true"))
 	float InteractLength;
+
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
+	float FullHealth;
+	
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
+	float Health;
 
 protected:
 	UPROPERTY(BlueprintAssignable)
@@ -83,6 +89,15 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	AActor* InteractTrace();
+
+	UFUNCTION(BlueprintPure, Category = Health)
+	float GetHealth();
+
+	UFUNCTION(BlueprintPure, Category = Health)
+	FText GetHealthText();
+
+	UFUNCTION(BlueprintCallable, Category = Health)
+	void UpdateHealth(float HealthChange);
 	
 	virtual float PlayAnimMontage(UAnimMontage* AnimMontage, float InPlayRate = 1.f, FName StartSectionName = NAME_None) override;
 
@@ -178,6 +193,9 @@ protected:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 public:
+	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator,
+		AActor* DamageCauser) override;
+		
 	/** Returns Mesh1P subobject **/
 	FORCEINLINE class USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/

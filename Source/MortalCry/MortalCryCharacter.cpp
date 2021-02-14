@@ -23,6 +23,10 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 
+	SetCanBeDamaged(true);
+	
+	GetMesh()->SetOwnerNoSee(true);
+
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
@@ -43,10 +47,8 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 	Mesh1P->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
 
 	MeshFP = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMeshFP"));
-	MeshFP->SetOnlyOwnerSee(true);
 	MeshFP->SetupAttachment(RootComponent);
-	MeshFP->SetRelativeRotation(FRotator(0.f, -90.f, 0.f));
-	MeshFP->SetRelativeLocation(FVector(0.f, 0.f, -93.f));
+	MeshFP->SetOnlyOwnerSee(true);
 	
 	// Default offset from the character location for projectiles to spawn
 	// GunOffset = FVector(100.0f, 0.0f, 10.0f);
@@ -57,6 +59,8 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 	
 	OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpWeapon);
 	OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpItem);
+	
+	FullHealth = Health = 1000.f;
 }
 
 void AMortalCryCharacter::BeginPlay()
@@ -125,6 +129,9 @@ void AMortalCryCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 	DOREPLIFETIME(AMortalCryCharacter, ActualWeapon);
 	DOREPLIFETIME(AMortalCryCharacter, Weapons);
+	
+	DOREPLIFETIME(AMortalCryCharacter, FullHealth);
+	DOREPLIFETIME(AMortalCryCharacter, Health);
 }
 
 void AMortalCryCharacter::PickUp_Implementation(AActor* Item)
@@ -408,4 +415,30 @@ void AMortalCryCharacter::OnCrouchSwitch()
 	{
 		OnEndCrouch();
 	}
+}
+
+float AMortalCryCharacter::GetHealth()
+{
+	return Health / FullHealth;
+}
+
+FText AMortalCryCharacter::GetHealthText()
+{
+	const int32 HP = FMath::RoundHalfFromZero(GetHealth() * 100.f);
+	const FString HPString = FString::FromInt(HP) + FString(TEXT("%"));
+	return FText::FromString(HPString);
+}
+
+void AMortalCryCharacter::UpdateHealth(float HealthChange)
+{
+	Health += HealthChange;
+	Health = FMath::Clamp(Health, 0.f, FullHealth);
+}
+
+float AMortalCryCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator,
+    AActor* DamageCauser)
+{
+	const float ActualDamage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
+	UpdateHealth(-ActualDamage);
+	return ActualDamage;
 }
