@@ -4,46 +4,39 @@
 
 #include "CoreMinimal.h"
 
-#include "UObject/Interface.h"
-#include "WeaponBase.generated.h"
+#include "Weapon.h"
+#include "Animation/SkeletalMeshActor.h"
+#include "MortalCry/Collectable.h"
+#include "MortalCry/Informative.h"
 
-// This class does not need to be modified.
-UINTERFACE(MinimalAPI)
-class UWeaponBase : public UInterface
-{
-	GENERATED_BODY()
-};
+#include "WeaponBase.generated.h"
 
 /**
  * 
  */
-class MORTALCRY_API IWeaponBase
+UCLASS(Abstract)
+class MORTALCRY_API AWeaponBase : public ASkeletalMeshActor, public IWeapon, public ICollectable, public IInformative
 {
 	GENERATED_BODY()
 
-	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void Attack();
-	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAttack();
+	explicit AWeaponBase(const FObjectInitializer& ObjectInitializer);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void AlterAttack();
-	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAlterAttack();
+private:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Interaction, meta = (AllowPrivateAccess = "true"))
+	FName Name;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void Action();
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Interaction, meta = (AllowPrivateAccess = "true"))
+	FString InteractText;
 	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAction();
+public:
+	virtual void Sheath_Implementation() override;
+	
+	virtual void Interact_Implementation(AActor* InInstigator) override;
+	virtual void EndInteract_Implementation(AActor* InInstigator) override;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void AlterAction();
+	virtual void GetDescription_Implementation(FString& OutString) const override;
 	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAlterAction();
+	virtual FString GetName_Implementation() const override { return Name.ToString(); }
+	
 };

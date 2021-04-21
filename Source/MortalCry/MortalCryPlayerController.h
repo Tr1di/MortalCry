@@ -6,8 +6,6 @@
 #include "GameFramework/PlayerController.h"
 #include "MortalCryPlayerController.generated.h"
 
-DECLARE_DYNAMIC_DELEGATE(FInteractSignature);
-DECLARE_DYNAMIC_DELEGATE(FEndInteractSignature);
 DECLARE_DYNAMIC_DELEGATE_RetVal(AActor*, FTraceSignature);
 
 /**
@@ -20,38 +18,14 @@ class MORTALCRY_API AMortalCryPlayerController : public APlayerController
 	
 public:
 	explicit AMortalCryPlayerController(const FObjectInitializer& ObjectInitializer);
-
-	FTimerHandle InteractTimer;
-
-	UPROPERTY()
-	FInteractSignature OnInteract;
-
-	UPROPERTY()
-	FEndInteractSignature OnEndInteract;
 	
-private:
-	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	APawn* MainPawn;
+	FTraceSignature OnTrace;
 	
-public:
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    APawn* Trace();
-
 	UFUNCTION(BlueprintCallable)
-    void Interact();
-
-	UFUNCTION(BlueprintCallable)
-    void Interact_Released();
+    AActor* Trace();
 	
 protected:
 	virtual void SetupInputComponent() override;
-	
-	UFUNCTION(BlueprintCallable, Reliable, Server)
-	void DoUnPossess();
-
-	void Interact_Internal();
-
-	virtual void OnUnPossess() override;
 	
 public:
 	virtual void Tick(float DeltaSeconds) override;

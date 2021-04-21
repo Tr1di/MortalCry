@@ -4,8 +4,6 @@
 
 #include "CoreMinimal.h"
 
-
-#include "Possessive.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Character.h"
 
@@ -13,7 +11,7 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam( FPickUpSiganture, AActor*, Item );
 
-class AWeapon;
+class AWeaponBase;
 class UInputComponent;
 class USceneComponent;
 class USkeletalMeshComponent;
@@ -36,11 +34,7 @@ class AMortalCryCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-	/** Pawn mesh: 1st person view (arms; seen only by self) */
-	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
-	USkeletalMeshComponent* Mesh1P;
-
-	/** Pawn mesh: 1st person view (arms; seen only by self) */
+	/** Pawn mesh: 1st person view */
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category=Mesh, meta = (AllowPrivateAccess = "true"))
 	USkeletalMeshComponent* MeshFP;
 	
@@ -48,7 +42,7 @@ class AMortalCryCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 	
-	UPROPERTY(EditAnywhere, Replicated, BlueprintReadWrite, Category = Weapon, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Weapon, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
 	AActor* ActualWeapon;
 	
 	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
@@ -60,9 +54,6 @@ class AMortalCryCharacter : public ACharacter
 	UPROPERTY(BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true", MustImplement = "Interactive"))
 	AActor* ActualInteractiveActor;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true"))
-	float InteractLength;
-
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
 	float FullHealth;
 	
@@ -72,6 +63,9 @@ class AMortalCryCharacter : public ACharacter
 protected:
 	UPROPERTY(BlueprintAssignable)
 	FPickUpSiganture OnPickUp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true"))
+	float InteractLength;
 
 public:
 	AMortalCryCharacter(const FObjectInitializer& ObjectInitializer);
@@ -131,6 +125,12 @@ protected:
 
 	UFUNCTION()
 	void PreviousWeapon();
+
+	UFUNCTION(Server, Reliable)
+	void Draw(AActor* Weapon);
+	
+	UFUNCTION(Server, Reliable)
+	void Sheath(AActor* Weapon);
 	
 	UFUNCTION(NetMulticast, Reliable)
 	void OnPickUpWeapon(AActor* Item);
@@ -141,6 +141,9 @@ protected:
 private:
 	UFUNCTION(Server, Reliable, WithValidation)
 	void ServerInteract(AActor* InInteractiveActor);
+	
+	UFUNCTION(Server, Reliable)
+	void ServerEndInteract();
 
 protected:	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
@@ -169,14 +172,7 @@ protected:
 
 public:
 	UFUNCTION(BlueprintCallable)
-	bool SetActualWeapon(AActor* NewWeapon);
-
-private:
-	UFUNCTION(Server, Reliable)
-	void ServerSetActualWeapon(AActor* NewWeapon);
-
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastSetActualWeapon(AActor* NewWeapon);
+	void SetActualWeapon(AActor* NewWeapon);
 
 public:
 	void OnCrouch();
@@ -194,11 +190,22 @@ protected:
 
 public:
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator,
-		AActor* DamageCauser) override;
+							AActor* DamageCauser) override;
 		
-	/** Returns Mesh1P subobject **/
-	FORCEINLINE class USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
+	virtual USceneComponent* GetDefaultAttachComponent() const override { return GetMesh(); }
+		
+	/** Returns MeshFP subobject **/
+	FORCEINLINE class USkeletalMeshComponent* GetMeshFP() const { return MeshFP; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 	
 };
+
+/**
+* Hehehe :)
+*/
+template<typename T>
+T UselessFunction(T Input)
+{
+	return Input;
+}

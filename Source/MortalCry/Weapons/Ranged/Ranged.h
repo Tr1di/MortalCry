@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "MortalCry/Weapons/Weapon.h"
+#include "MortalCry/Weapons/WeaponBase.h"
 #include "Ranged.generated.h"
 
 class AMortalCryProjectile;
@@ -12,7 +12,7 @@ class AMortalCryProjectile;
  * 
  */
 UCLASS()
-class MORTALCRY_API ARanged : public AWeapon
+class MORTALCRY_API ARanged : public AWeaponBase
 {
 	GENERATED_BODY()
 

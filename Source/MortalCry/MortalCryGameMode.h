@@ -13,6 +13,9 @@ class AMortalCryGameMode : public AGameModeBase
 
 public:
 	AMortalCryGameMode();
+
+	UFUNCTION(BlueprintCallable)
+	void SwapPlayers();
 };
 
 

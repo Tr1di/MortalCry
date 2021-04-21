@@ -2,6 +2,10 @@
 
 #include "MortalCryCharacter.h"
 
+
+#include "Collectable.h"
+#include "Interactive.h"
+#include "MortalCryPlayerController.h"
 #include "MortalCryProjectile.h"
 #include "MotionControllerComponent.h"
 #include "Animation/AnimInstance.h"
@@ -12,6 +16,8 @@
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
 #include "Weapons/Weapon.h"
+
+// #include "../Plugins/Online/OnlineSubsystemSteam/Source/Public/OnlineSubsystemSteam.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -37,17 +43,8 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 	FirstPersonCameraComponent->SetRelativeLocation(FVector(-39.56f, 1.75f, 64.f)); // Position the camera
 	FirstPersonCameraComponent->bUsePawnControlRotation = true;
 
-	// Create a mesh component that will be used when being viewed from a '1st person' view (when controlling this pawn)
-	Mesh1P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh1P"));
-	Mesh1P->SetOnlyOwnerSee(true);
-	Mesh1P->SetupAttachment(FirstPersonCameraComponent);
-	Mesh1P->bCastDynamicShadow = false;
-	Mesh1P->CastShadow = false;
-	Mesh1P->SetRelativeRotation(FRotator(1.9f, -19.19f, 5.2f));
-	Mesh1P->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
-
 	MeshFP = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMeshFP"));
-	MeshFP->SetupAttachment(RootComponent);
+	MeshFP->SetupAttachment(GetMesh());
 	MeshFP->SetOnlyOwnerSee(true);
 	
 	// Default offset from the character location for projectiles to spawn
@@ -121,6 +118,11 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis("TurnRate", this, &AMortalCryCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AMortalCryCharacter::LookUpAtRate);
+
+	if (AMortalCryPlayerController* MCController = Cast<AMortalCryPlayerController>(GetController()))
+	{
+		MCController->OnTrace.BindDynamic(this, &AMortalCryCharacter::InteractTrace);
+	}
 }
 
 void AMortalCryCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -143,29 +145,21 @@ void AMortalCryCharacter::PickUp_Implementation(AActor* Item)
 }
 
 void AMortalCryCharacter::OnPickUpWeapon_Implementation(AActor* Item)
-{
-	if ( Weapons.Num() > 3 )
+{	
+	if ( Item && Item->Implements<UWeapon>() )
 	{
-		return;
-	}
-	
-	if ( Item && Item->Implements<UWeaponBase>() )
-	{
-		if (Item && Item->Implements<UInteractive>() )
-		{
-			IInteractive::Execute_Interact(Item, this);
-		}
+		IInteractive::Execute_Interact(Item, this);
 		
 		Weapons.Add(Item);
 		MoveIgnoreActorAdd(Item);
 		
 		if ( !ActualWeapon )
 		{
-			SetActualWeapon(Item);
+			Draw(Item);
 			return;
 		}
 
-		Item->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("BackSocket"));
+		Sheath(Item);
 	}
 }
 
@@ -188,11 +182,9 @@ AActor* AMortalCryCharacter::InteractTrace_Implementation()
 
 	FCollisionQueryParams Params;
 	Params.bTraceComplex = true;
+	Params.AddIgnoredActors(ActorsToIgnore);
 	
-	//if ( ActorLineTraceSingle(OutHit, Start, End, ECC_Visibility, Params) )
-	
-	if ( UKismetSystemLibrary::LineTraceSingle(GetWorld(), Start, End, TraceTypeQuery2, true, ActorsToIgnore,
-                                            EDrawDebugTrace::None, OutHit, true) )
+	if (GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, ECC_Visibility, Params))
 	{
 		if ( OutHit.GetActor()->Implements<UInteractive>() )
 		{
@@ -205,54 +197,30 @@ AActor* AMortalCryCharacter::InteractTrace_Implementation()
 
 float AMortalCryCharacter::PlayAnimMontage(UAnimMontage* AnimMontage, float InPlayRate, FName StartSectionName)
 {
-	const float ParentResult = 0; //Super::PlayAnimMontage(AnimMontage, InPlayRate, StartSectionName);
-	
-	UAnimInstance* AnimInstance = Mesh1P ? Mesh1P->GetAnimInstance() : nullptr; 
-	if( AnimMontage && AnimInstance )
-	{
-		float const Duration = AnimInstance->Montage_Play(AnimMontage, InPlayRate);
-
-		if ( Duration > 0.f )
-		{
-			if( StartSectionName != NAME_None )
-			{
-				AnimInstance->Montage_JumpToSection(StartSectionName, AnimMontage);
-			}
-
-			return Duration;
-		}
-	}
-
-	return ParentResult;
+	return Super::PlayAnimMontage(AnimMontage, InPlayRate, StartSectionName);
 }
 
 void AMortalCryCharacter::OnAttack()
 {
-	//if ( GetLocalRole() == ROLE_Authority )
-	//{
-		if ( ActualWeapon )
-		{
-			IWeaponBase::Execute_Attack(ActualWeapon);
-		}
-	//}
+	if ( ActualWeapon )
+	{
+		IWeapon::Execute_Attack(ActualWeapon);
+	}
 }
 
 void AMortalCryCharacter::OnEndAttack()
 {
-	//if ( GetLocalRole() == ROLE_Authority )
-	//{
-		if ( ActualWeapon )
-		{
-			IWeaponBase::Execute_EndAttack(ActualWeapon);
-		}
-	//}
+	if ( ActualWeapon )
+	{
+		IWeapon::Execute_EndAttack(ActualWeapon);
+	}
 }
 
 void AMortalCryCharacter::OnAlterAttack()
 {
 	if ( ActualWeapon )
 	{
-		IWeaponBase::Execute_AlterAttack(ActualWeapon);
+		IWeapon::Execute_AlterAttack(ActualWeapon);
 	}
 }
 
@@ -260,7 +228,7 @@ void AMortalCryCharacter::OnEndAlterAttack()
 {
 	if ( ActualWeapon )
 	{
-		IWeaponBase::Execute_EndAlterAttack(ActualWeapon);
+		IWeapon::Execute_EndAlterAttack(ActualWeapon);
 	}
 }
 
@@ -268,7 +236,7 @@ void AMortalCryCharacter::OnAction()
 {
 	if ( ActualWeapon )
 	{
-		IWeaponBase::Execute_Action(ActualWeapon);
+		IWeapon::Execute_Action(ActualWeapon);
 	}
 }
 
@@ -276,7 +244,7 @@ void AMortalCryCharacter::OnEndAction()
 {
 	if ( ActualWeapon )
 	{
-		IWeaponBase::Execute_EndAction(ActualWeapon);
+		IWeapon::Execute_EndAction(ActualWeapon);
 	}
 }
 
@@ -284,7 +252,7 @@ void AMortalCryCharacter::OnAlterAction()
 {
 	if ( ActualWeapon )
 	{
-		IWeaponBase::Execute_AlterAction(ActualWeapon);
+		IWeapon::Execute_AlterAction(ActualWeapon);
 	}
 }
 
@@ -292,24 +260,32 @@ void AMortalCryCharacter::OnEndAlterAction()
 {
 	if ( ActualWeapon )
 	{
-		IWeaponBase::Execute_EndAlterAction(ActualWeapon);
+		IWeapon::Execute_EndAlterAction(ActualWeapon);
 	}
 }
 
 bool AMortalCryCharacter::ServerInteract_Validate(AActor* InInteractiveActor)
 {
+	if ( InInteractiveActor )
+	{
+		return GetWorld()->ContainsActor(InInteractiveActor);
+	}
 	return true;
 }
 
 void AMortalCryCharacter::ServerInteract_Implementation(AActor* InInteractiveActor)
 {
-	if ( InInteractiveActor->Implements<UCollectable>() )
+	if ( InInteractiveActor )
 	{
-		PickUp(InInteractiveActor);
-		return;
+		if ( InInteractiveActor->Implements<UCollectable>() )
+		{
+			PickUp(InInteractiveActor);
+			return;
+		}
+
+		ActualInteractiveActor = InInteractiveActor;
+		IInteractive::Execute_Interact(ActualInteractiveActor, this);
 	}
-	
-	ActualInteractiveActor = InInteractiveActor;
 }
 
 void AMortalCryCharacter::Interact_Implementation()
@@ -320,49 +296,64 @@ void AMortalCryCharacter::Interact_Implementation()
 	}
 }
 
+void AMortalCryCharacter::ServerEndInteract_Implementation()
+{
+	if ( ActualInteractiveActor )
+	{
+		IInteractive::Execute_EndInteract(ActualInteractiveActor, this);
+		ActualInteractiveActor = nullptr;
+	}
+}
+
 void AMortalCryCharacter::EndInteract_Implementation()
 {
-	
+	ServerEndInteract();
 }
 
-void AMortalCryCharacter::ServerSetActualWeapon_Implementation(AActor* NewWeapon)
+void AMortalCryCharacter::SetActualWeapon(AActor* NewWeapon)
 {
-	MulticastSetActualWeapon(NewWeapon);
-}
-
-void AMortalCryCharacter::MulticastSetActualWeapon_Implementation(AActor* NewWeapon)
-{
-	if ( NewWeapon )
-	{
-		if (ActualWeapon)
-		{
-			ActualWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("BackSocket"));
-		}
-		ActualWeapon = NewWeapon;
-		ActualWeapon->AttachToComponent(MeshFP, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
-	}
-}
-
-bool AMortalCryCharacter::SetActualWeapon(AActor* NewWeapon)
-{
-	if ( NewWeapon && NewWeapon != ActualWeapon )
-	{
-		ServerSetActualWeapon(NewWeapon);
-		return true;
-	}
-	return  false;
+	ActualWeapon = NewWeapon;
 }
 
 void AMortalCryCharacter::NextWeapon()
 {
-	int32 Index = Weapons.Find(ActualWeapon) + 1;
-	while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && ++Index < Weapons.Num() );
+	const int32 Index = Weapons.Find(ActualWeapon) + 1;
+	Draw(Weapons[Index % Weapons.Num()]);
+	//while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && ++Index < Weapons.Num() );
 }
 
 void AMortalCryCharacter::PreviousWeapon()
 {
-	int32 Index = Weapons.Find(ActualWeapon) + Weapons.Num() - 1;
-	while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && --Index > Weapons.Num() );
+	const int32 Index = Weapons.Find(ActualWeapon) + Weapons.Num() - 1;
+	Draw(Weapons[Index % Weapons.Num()]);
+	//while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && --Index > Weapons.Num() );
+}
+
+void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
+{
+	if ( Weapon && Weapon->Implements<UWeapon>() )
+	{
+		Sheath(ActualWeapon);
+
+		SetActualWeapon(Weapon);
+		
+		IWeapon::Execute_Draw(Weapon);
+		Weapon->AttachToComponent(MeshFP, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+	}
+}
+
+void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon)
+{
+	if ( Weapon && Weapon->Implements<UWeapon>() )
+	{
+		if ( Weapon == ActualWeapon )
+		{
+			SetActualWeapon(nullptr);
+		}
+		
+		IWeapon::Execute_Sheath(Weapon);
+		Weapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("BackSocket"));
+	}
 }
 
 void AMortalCryCharacter::MoveForward(float Value)

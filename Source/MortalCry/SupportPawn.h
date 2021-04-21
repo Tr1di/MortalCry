@@ -12,7 +12,7 @@ UCLASS()
 class MORTALCRY_API ASupportPawn : public APawn
 {
 	GENERATED_BODY()
-
+	
 public:
 	// Sets default values for this pawn's properties
 	ASupportPawn();
@@ -26,14 +26,20 @@ public:
 	float BaseLookUpRate;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    APawn* Trace();
+    AActor* Trace();
+	
+private:
+	TWeakObjectPtr<AController> OldController;
+
+	UFUNCTION(Server, Reliable)
+	void SetOlController(AController* InController);
 	
 protected:
 	/** DefaultPawn movement component */
 	UPROPERTY(Category = Pawn, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UPawnMovementComponent* MovementComponent;
 
-	FPossessSignature PossessSignature;
+	FPossessSignature Possess;
 	
 	UFUNCTION(BlueprintCallable, Category="Pawn")
     virtual void MoveForward(float Val);
@@ -52,14 +58,21 @@ protected:
 
 	void DoPossess();
 	
-	UFUNCTION(Reliable, Server)
+	UFUNCTION(Server, Reliable)
     void ServerDoPossess(APawn* InPawn);
+
+	void DoUnPossess();
+
+	UFUNCTION(Server, Reliable)
+    void ServerDoUnPossess();
 	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
+	virtual void UnPossessed() override;
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

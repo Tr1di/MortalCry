@@ -4,37 +4,52 @@
 
 #include "CoreMinimal.h"
 
-#include "WeaponBase.h"
-#include "Animation/SkeletalMeshActor.h"
-#include "MortalCry/Collectable.h"
-#include "MortalCry/Informative.h"
-
+#include "UObject/Interface.h"
 #include "Weapon.generated.h"
+
+// This class does not need to be modified.
+UINTERFACE(MinimalAPI)
+class UWeapon : public UInterface
+{
+	GENERATED_BODY()
+};
 
 /**
  * 
  */
-UCLASS(Abstract)
-class MORTALCRY_API AWeapon : public ASkeletalMeshActor, public IWeaponBase, public ICollectable, public IInformative
+class MORTALCRY_API IWeapon
 {
 	GENERATED_BODY()
 
+	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	explicit AWeapon(const FObjectInitializer& ObjectInitializer);
-
-private:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Interaction, meta = (AllowPrivateAccess = "true"))
-	FName Name;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Interaction, meta = (AllowPrivateAccess = "true"))
-	FString InteractText;
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void Attack();
 	
-public:
-	virtual void Interact_Implementation(AActor* InInstigator) override;
-	virtual void EndInteract_Implementation(AActor* InInstigator) override;
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void EndAttack();
 
-	virtual void GetDescription_Implementation(FString& OutString) const override;
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void AlterAttack();
 	
-	virtual FString GetName_Implementation() const override { return Name.ToString(); }
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void EndAlterAttack();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void Action();
 	
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void EndAction();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void AlterAction();
+	
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void EndAlterAction();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void Draw();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void Sheath();
 };
