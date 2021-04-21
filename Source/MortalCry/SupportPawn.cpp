@@ -4,6 +4,7 @@
 #include "SupportPawn.h"
 
 
+#include "MortalCryPlayerController.h"
 #include "Possessive.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Kismet/KismetSystemLibrary.h"
@@ -36,19 +37,10 @@ void ASupportPawn::BeginPlay()
 	
 }
 
-// Called every frame
-void ASupportPawn::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
 // Called to bind functionality to input
 void ASupportPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ASupportPawn::DoPossess);
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &ASupportPawn::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ASupportPawn::MoveRight);
@@ -58,13 +50,32 @@ void ASupportPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis("LookUp", this, &ASupportPawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ASupportPawn::LookUpAtRate);
 
-	// if ( GetController() && GetController()->InputComponent )
-	// {
-	// 	//GetController()->InputComponent->BindAction("PossessMain", IE_DoubleClick, GetController(), [](AController* C, APawn* InPawn) { C->Possess(InPawn); }, (APawn*)this);
-	// }
+	
+	if ( GetController() && GetController()->InputComponent)
+	{
+		GetController()->InputComponent->BindAction("Interact", IE_DoubleClick, this, &ASupportPawn::DoPossess);
+		GetController()->InputComponent->BindAction("PossessMain", IE_DoubleClick, this, &ASupportPawn::DoUnPossess);
+	}
+
+	if (AMortalCryPlayerController* MCController = GetController<AMortalCryPlayerController>())
+	{
+		MCController->OnTrace.BindDynamic(this, &ASupportPawn::Trace);
+	}
 }
 
-APawn* ASupportPawn::Trace_Implementation()
+void ASupportPawn::UnPossessed()
+{
+	SetOlController(GetController());
+	Super::UnPossessed();
+}
+
+// Called every frame
+void ASupportPawn::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+}
+
+AActor* ASupportPawn::Trace_Implementation()
 {	
 	FHitResult OutHit;
 	const FVector Start = GetPawnViewLocation();
@@ -100,13 +111,30 @@ void ASupportPawn::ServerDoPossess_Implementation(APawn* InPawn)
 {
 	if ( GetLocalRole() == ROLE_Authority )
 	{
-		if ( InPawn && InPawn->GetOwner() )
-		{
-			SetOwner(InPawn->GetOwner());
-		}
-		Controller->Possess(InPawn);
-		Destroy();
+		GetController()->Possess(InPawn);
+		AttachToActor(InPawn, FAttachmentTransformRules::SnapToTargetIncludingScale);
 	}
+}
+
+void ASupportPawn::DoUnPossess()
+{
+	ServerDoUnPossess();
+}
+
+void ASupportPawn::ServerDoUnPossess_Implementation()
+{
+	if ( GetController() ) return;
+	
+	DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+	if ( OldController.IsValid() )
+	{
+		OldController->Possess(this);
+	}
+}
+
+void ASupportPawn::SetOlController_Implementation(AController* InController)
+{
+	OldController = InController;
 }
 
 void ASupportPawn::MoveForward(float Val)

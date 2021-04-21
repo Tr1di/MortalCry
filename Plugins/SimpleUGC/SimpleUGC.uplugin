@@ -2,7 +2,7 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "MCMEditor",
+	"FriendlyName": "SimpleUGC",
 	"Description": "",
 	"Category": "Other",
 	"CreatedBy": "",
@@ -12,6 +12,7 @@
 	"SupportURL": "",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
 	"Installed": false,
 	"Modules": [
 		{

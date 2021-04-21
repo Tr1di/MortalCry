@@ -8,6 +8,7 @@ public class MortalCryEditorTarget : TargetRules
 	public MortalCryEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
+		// BuildEnvironment = TargetBuildEnvironment.Unique;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		ExtraModuleNames.Add("MortalCry");
 	}

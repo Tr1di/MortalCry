@@ -34,11 +34,6 @@ void AMortalCryHUD::DrawInteractionText_Implementation()
 	{
 		InteractiveActor = PC->Trace();
 	}
-	
-	if ( AMortalCryCharacter* Character = Cast<AMortalCryCharacter>(GetOwningPawn()) )
-	{
-		InteractiveActor = Character->InteractTrace();
-	}
 
 	if ( InteractiveActor && InteractiveActor->Implements<UInformative>() )
 	{
