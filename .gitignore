@@ -13,4 +13,5 @@ Plugins/Developer
 *.suo
 *.xcodeproj
 *.xcworkspace
-Диплом.dock
+/*.docx
+/*.doc
