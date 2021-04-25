@@ -59,7 +59,238 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Init" />
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/GravityTrigger.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BB_NeuralAI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BT_NueralAI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/ObsS.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Materials/M_Ellipse_Mask.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Materials/M_Hex_Mask.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Materials/M_Mask_Base.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Materials/M_Square_45.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Materials/M_Square_Mask.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/256x256/T_Ellipse_Base_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/256x256/T_Ellipse_Glass1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/256x256/T_Ellipse_Glass2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/256x256/T_Ellipse_Mask1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/256x256/T_Ellipse_Outline1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/256x256/T_Ellipse_Outline2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/64x64/T_Ellipse_Base_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/64x64/T_Ellipse_Glass1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/64x64/T_Ellipse_Glass2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/64x64/T_Ellipse_Mask1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/64x64/T_Ellipse_Outline1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Ellipse/64x64/T_Ellipse_Outline2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/256x256/T_Hexa_Base_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/256x256/T_Hexa_Glass1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/256x256/T_Hexa_Glass2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/256x256/T_Hexa_Mask1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/256x256/T_Hexa_Outline1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/256x256/T_Hexa_Outline2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/64x64/T_Hexa_Base_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/64x64/T_Hexa_Glass1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/64x64/T_Hexa_Glass2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/64x64/T_Hexa_Mask1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/64x64/T_Hexa_Outline1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Hexagon/64x64/T_Hexa_Outline2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/256x256/T_Square_Base_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/256x256/T_Square_Glass1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/256x256/T_Square_Glass2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/256x256/T_Square_Mask1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/256x256/T_Square_Outline1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/256x256/T_Square_Outline2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/64x64/T_Square_Base_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/64x64/T_Square_Glass1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/64x64/T_Square_Glass2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/64x64/T_Square_Mask1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/64x64/T_Square_Outline1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/64x64/T_Square_Outline2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Base_Icons/Square/T_SquareMask_45_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_A1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_A1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_A2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_A2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_B1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_B1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_B2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_B2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_DPad_Base_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_DPad_D_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_DPad_L_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_DPad_R_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_DPad_T_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Gamepad_Down_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Gamepad_Left_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Gamepad_Right_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Gamepad_Shoulder_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Gamepad_Trigger_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Gamepad_Up_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_LMB_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_LMB_RMB_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_MWheel_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_MWheel_Basic_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_MWheel_Down_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_MWheel_Up_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_RMB_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_X1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_X1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_X2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_X2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Y1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Y1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Y2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Controller_Icons/T_Y2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_AddFriend_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Arrow_D_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Arrow_L_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Arrow_R_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Arrow_U_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_At_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Audio_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Bell_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Book_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Check2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Check_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Cube_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Cubes_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Dagger2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Dagger_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Dialogue_Multi_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Dialogue_Single_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Disc_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Dollar_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_ExclamationMark_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_FF_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Friends_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_GPS1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_GPS2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_GPS3_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Gamepad_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Gear_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Home_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Key_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Keyboard_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Lightbuld_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Lock_Locked_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Lock_Unlocked_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Loupe_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Loupe_Minus_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Loupe_Plus_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Menu_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Message_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_MicrofoneMuted_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Microphone_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Minus_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Mouse_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Music_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Net_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_OnOff_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Pause_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Play_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Play_Rev_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_PlusMinus_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Plus_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_QuestionMark_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_RadioTower_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Redo_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Refresh_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Refresh_Back_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Saving_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_SendFriend_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Star_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Stop_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Undo_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Video_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Vol_1_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Vol_2_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Vol_3_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_Vol_Mute_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/256x256/T_WB_256x256.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_AddFriend_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Arrow_D_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Arrow_L_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Arrow_R_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Arrow_U_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_At_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Audio_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Bell_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Book_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Check2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Check_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Cube_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Cubes_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Dagger2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Dagger_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Dialogue_Multi_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Dialogue_Single_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Disc_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Dollar_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_ExclamationMark_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_FF_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Friends_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_GPS1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_GPS2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_GPS3_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Gamepad_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Gear_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Home_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Key_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Keyboard_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Lightbulb_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Lock_Locked_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Lock_Unlocked_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Loupe_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Loupe_Minus_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Loupe_Plus_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Menu_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Message_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_MicrophoneMuted_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Microphone_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Minus_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Mouse_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Music_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Net_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_OnOff_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Pause_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Play_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Play_Rev_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_PlusMinus_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Plus_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_QuestionMark_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_RadioTower_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Redo_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Refresh_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Refresh_Back_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Saving_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_SendFriend_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Star_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Stop_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Undo_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Video_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Vol_1_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Vol_2_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Vol_3_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_Vol_Mute_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/Textures/Generic_Icons/64x64/T_WB_64x64.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/UI/Enums/E_GlassMaskTypes.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/UI/Enums/E_IconBaseTypes.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/UI/Enums/E_Sizes.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ProIconPack/UI/WB_Icon_Base.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/MySuperGun.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_FPGun.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_FPGun.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TPawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/MindMaker/AI/NeuralAI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MindMaker/AI/NeuralAI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/MindMaker/AI/WalkingActionGroup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MindMaker/AI/WalkingActionGroup.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MortalCry.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/MortalCry.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCry.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCry.Build.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,10 +299,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="a379b2c9-927a-483c-96ff-890919ca8a5f" />
@@ -141,7 +380,6 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Source/MortalCry/Interactive.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCry.Build.cs" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged/Ranged.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged/Ranged.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.cpp" />
@@ -174,11 +412,16 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponB.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
       <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/README.md" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCry.Build.cs" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/NueralAIController.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/NueralAIController.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/NeuralAIController.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/NeuralAIController.h" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42462,6 +42705,8 @@
       <workItem from="1619198107276" duration="466000" />
       <workItem from="1619198794273" duration="684000" />
       <workItem from="1619199552478" duration="1286000" />
+      <workItem from="1619344526660" duration="2718000" />
+      <workItem from="1619358005084" duration="4105000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
