@@ -59,7 +59,7 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Init" />
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Fix Redirects" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,7 +160,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryProjectile.cpp" />
       <option value="$PROJECT_DIR$/../../Unreal Engine/Engine/Plugins/Online/OnlineSubsystemSteam/Source/Private/OnlineSubsystemSteamPrivate.h" />
       <option value="$PROJECT_DIR$/../../Unreal Engine/Engine/Source/UE4Editor.Target.cs" />
-      <option value="$PROJECT_DIR$/Config/DefaultEngine.ini" />
       <option value="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGC/Private/UGCBaseGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCryEditor.Target.cs" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.cpp" />
@@ -179,6 +178,7 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
       <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/README.md" />
+      <option value="$PROJECT_DIR$/Config/DefaultEngine.ini" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42491,7 +42491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619200535686</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix Redirects">
+      <created>1619367054756</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619367054756</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42514,7 +42521,9 @@
     <MESSAGE value="UGC" />
     <MESSAGE value="D" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="Temp" />
+    <MESSAGE value="Fix Redirects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Redirects" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
