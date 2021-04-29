@@ -59,16 +59,50 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Fix Redirects" />
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprint/ModTemplates/AI/NeuralNetwork/NeuralAIBaseController.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BB_NeuralAI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BT_NueralAI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/Punish.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/Rewardable.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="develop" />
+                <branch-info repo="$PROJECT_DIR$" source="AI" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="AI" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -176,9 +210,9 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
-      <option value="$PROJECT_DIR$/.gitignore" />
-      <option value="$PROJECT_DIR$/README.md" />
       <option value="$PROJECT_DIR$/Config/DefaultEngine.ini" />
+      <option value="$PROJECT_DIR$/README.md" />
+      <option value="$PROJECT_DIR$/.gitignore" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42363,6 +42397,9 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="" />
+      <changelist id="" name="Temp" comment="" />
+      <changelist id="" name="Всё" comment="" />
+      <changelist id="" name="Всё, что есть" comment="" />
       <created>1607015839858</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -42462,6 +42499,7 @@
       <workItem from="1619198107276" duration="466000" />
       <workItem from="1619198794273" duration="684000" />
       <workItem from="1619199552478" duration="1286000" />
+      <workItem from="1619727188195" duration="1987000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42498,7 +42536,42 @@
       <option name="project" value="LOCAL" />
       <updated>1619367054756</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Всё, что есть">
+      <created>1619718192785</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619718192785</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Temp">
+      <created>1619727267022</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619727267022</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add Rifles">
+      <created>1619727915994</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619727915994</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Plugins">
+      <created>1619727935956</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619727935956</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ignore MindMaker folders">
+      <created>1619728114397</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619728114397</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42509,7 +42582,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -42521,9 +42606,15 @@
     <MESSAGE value="UGC" />
     <MESSAGE value="D" />
     <MESSAGE value="Init" />
-    <MESSAGE value="Temp" />
     <MESSAGE value="Fix Redirects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Redirects" />
+    <MESSAGE value="Всё, что есть" />
+    <MESSAGE value="Temp" />
+    <MESSAGE value="Плагины" />
+    <MESSAGE value="Add Rifles" />
+    <MESSAGE value="Plugins" />
+    <MESSAGE value="Ignore MindMaker folders" />
+    <MESSAGE value="AI" />
+    <option name="LAST_COMMIT_MESSAGE" value="AI" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
