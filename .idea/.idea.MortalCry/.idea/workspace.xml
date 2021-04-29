@@ -60,11 +60,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprint/ModTemplates/AI/NeuralNetwork/ModAIController.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprint/ModTemplates/AI/NeuralNetwork/NeuralAIBase.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprint/ModTemplates/AI/NeuralNetwork/NeuralAIBaseController.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/Rewardable.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/MindMaker/AI/BB_NeuralAI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BB_NeuralAI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/MindMaker/AI/BT_NueralAI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BT_NueralAI.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/MindMaker/AI/NeuralAI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MindMaker/AI/NeuralAI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/MindMaker/AI/ObsS.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MortalCry.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/MortalCry.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42482,6 +42490,7 @@
       <workItem from="1619199552478" duration="1286000" />
       <workItem from="1619344526660" duration="2718000" />
       <workItem from="1619358005084" duration="4105000" />
+      <workItem from="1619435364445" duration="2703000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
