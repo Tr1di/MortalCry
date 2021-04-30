@@ -60,11 +60,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprint/ModTemplates/AI/NeuralNetwork/NeuralAIBaseController.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BB_NeuralAI.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/BT_NueralAI.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/Punish.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/MindMaker/AI/Rewardable.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,6 +101,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="a379b2c9-927a-483c-96ff-890919ca8a5f" />
@@ -233,6 +229,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -42397,9 +42394,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="" />
-      <changelist id="" name="Temp" comment="" />
-      <changelist id="" name="Всё" comment="" />
-      <changelist id="" name="Всё, что есть" comment="" />
       <created>1607015839858</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -42499,7 +42493,10 @@
       <workItem from="1619198107276" duration="466000" />
       <workItem from="1619198794273" duration="684000" />
       <workItem from="1619199552478" duration="1286000" />
-      <workItem from="1619727188195" duration="1987000" />
+      <workItem from="1619727188195" duration="2221000" />
+      <workItem from="1619729608647" duration="1020000" />
+      <workItem from="1619731027150" duration="164000" />
+      <workItem from="1619764512399" duration="3840000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42571,7 +42568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619728114397</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="HZ">
+      <created>1619729364269</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1619729364269</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42580,7 +42584,7 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="MAIN">
+        <entry key="0bd7fb87-2063-4463-bba5-2c943fc08206">
           <value>
             <State>
               <option name="FILTERS">
@@ -42588,13 +42592,55 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="develop" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -42614,7 +42660,8 @@
     <MESSAGE value="Plugins" />
     <MESSAGE value="Ignore MindMaker folders" />
     <MESSAGE value="AI" />
-    <option name="LAST_COMMIT_MESSAGE" value="AI" />
+    <MESSAGE value="HZ" />
+    <option name="LAST_COMMIT_MESSAGE" value="HZ" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
