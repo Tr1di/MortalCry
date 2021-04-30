@@ -15,3 +15,5 @@ Plugins/Developer
 *.xcworkspace
 /*.docx
 /*.doc
+MindMaker/build
+MindMaker/dist
