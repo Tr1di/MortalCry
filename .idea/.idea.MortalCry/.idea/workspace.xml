@@ -59,7 +59,10 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Init" />
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Всё, что есть">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +71,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="AI" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -160,7 +163,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryProjectile.cpp" />
       <option value="$PROJECT_DIR$/../../Unreal Engine/Engine/Plugins/Online/OnlineSubsystemSteam/Source/Private/OnlineSubsystemSteamPrivate.h" />
       <option value="$PROJECT_DIR$/../../Unreal Engine/Engine/Source/UE4Editor.Target.cs" />
-      <option value="$PROJECT_DIR$/Config/DefaultEngine.ini" />
       <option value="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGC/Private/UGCBaseGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCryEditor.Target.cs" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.cpp" />
@@ -177,8 +179,9 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
-      <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/README.md" />
+      <option value="$PROJECT_DIR$/Config/DefaultEngine.ini" />
+      <option value="$PROJECT_DIR$/.gitignore" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42491,7 +42494,21 @@
       <option name="project" value="LOCAL" />
       <updated>1619200535686</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix Redirects">
+      <created>1619367054756</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619367054756</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Всё, что есть">
+      <created>1619718192785</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619718192785</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42514,7 +42531,10 @@
     <MESSAGE value="UGC" />
     <MESSAGE value="D" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="Temp" />
+    <MESSAGE value="Fix Redirects" />
+    <MESSAGE value="Всё, что есть" />
+    <option name="LAST_COMMIT_MESSAGE" value="Всё, что есть" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
