@@ -63,6 +63,12 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 void AMortalCryCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if(IGenericTeamAgentInterface* Agent = Cast<IGenericTeamAgentInterface>(GetController()))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Setting team to %i"), static_cast<uint8>(Team))
+		Agent->SetGenericTeamId(static_cast<uint8>(Team));
+	}
 	
 	ForEachAttachedActors([&](AActor* AttachedActor)
 	{
@@ -107,6 +113,8 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMortalCryCharacter::Interact);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AMortalCryCharacter::EndInteract);
+
+	PlayerInputComponent->BindAction("SheathWeapon", IE_Pressed, this, &AMortalCryCharacter::OnSheathWeapon);
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMortalCryCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMortalCryCharacter::MoveRight);
@@ -138,7 +146,7 @@ void AMortalCryCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 void AMortalCryCharacter::PickUp_Implementation(AActor* Item)
 {
-	if ( GetLocalRole() == ROLE_Authority )
+	if ( HasAuthority() )
 	{
 		OnPickUp.Broadcast(Item);
 	}
@@ -148,24 +156,63 @@ void AMortalCryCharacter::OnPickUpWeapon_Implementation(AActor* Item)
 {	
 	if ( Item && Item->Implements<UWeapon>() )
 	{
-		IInteractive::Execute_Interact(Item, this);
-		
-		Weapons.Add(Item);
-		MoveIgnoreActorAdd(Item);
-		
-		if ( !ActualWeapon )
-		{
-			Draw(Item);
-			return;
-		}
+		const FName SocketName = GetSocketFor(IWeapon::Execute_GetType(Item));
 
-		Sheath(Item);
+		if (SocketName != NAME_None)
+		{
+			IInteractive::Execute_Interact(Item, this);
+		
+			Weapons.Add(Item);
+		
+			if ( !ActualWeapon )
+			{
+				Draw(Item);
+				return;
+			}
+		
+			Sheath(Item, SocketName);
+		}
 	}
 }
 
 void AMortalCryCharacter::OnPickUpItem(AActor* Item)
 {
 	
+}
+
+FName AMortalCryCharacter::GetSocketFor(FName WeaponType)
+{
+	if ( !Holsters.Contains(WeaponType) )
+	{
+		return NAME_None;
+	}
+	
+	TArray<FName> AllowedSockets = Holsters[WeaponType].Sockets;
+	
+	ForEachAttachedActors([&](AActor* Actor)
+	{
+		if (Actor->Implements<UWeapon>())
+		{
+			if (IWeapon::Execute_GetType(Actor) == WeaponType)
+			{
+				AllowedSockets.Remove(Actor->GetAttachParentSocketName());
+			}
+		}
+		return true;
+	});
+
+	if ( ActualWeapon )
+	{
+		const int32 Index = AllowedSockets.Num() - 1;
+		
+		if (AllowedSockets.IsValidIndex(Index))
+		{
+			AllowedSockets.RemoveAt(Index);
+		}
+		
+	}
+	
+	return AllowedSockets.IsValidIndex(0) ? AllowedSockets[0] : NAME_None;
 }
 
 AActor* AMortalCryCharacter::InteractTrace_Implementation()
@@ -329,6 +376,11 @@ void AMortalCryCharacter::PreviousWeapon()
 	//while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && --Index > Weapons.Num() );
 }
 
+void AMortalCryCharacter::OnSheathWeapon()
+{
+	Sheath(ActualWeapon);
+}
+
 void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 {
 	if ( Weapon && Weapon->Implements<UWeapon>() )
@@ -338,11 +390,13 @@ void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 		SetActualWeapon(Weapon);
 		
 		IWeapon::Execute_Draw(Weapon);
-		Weapon->AttachToComponent(MeshFP, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+		Weapon->AttachToComponent(IsPlayerControlled() && IsLocallyControlled() ? MeshFP : GetMesh(),
+			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
+			TEXT("GripPoint"));
 	}
 }
 
-void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon)
+void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName)
 {
 	if ( Weapon && Weapon->Implements<UWeapon>() )
 	{
@@ -350,9 +404,19 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon)
 		{
 			SetActualWeapon(nullptr);
 		}
+
+		if (SocketName == NAME_None)
+		{
+			SocketName = GetSocketFor(IWeapon::Execute_GetType(Weapon));
+		}
+
+		if (SocketName == NAME_None)
+		{
+			return;
+		}
 		
 		IWeapon::Execute_Sheath(Weapon);
-		Weapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("BackSocket"));
+		Weapon->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), SocketName);
 	}
 }
 
@@ -432,4 +496,12 @@ float AMortalCryCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEv
 	const float ActualDamage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
 	UpdateHealth(-ActualDamage);
 	return ActualDamage;
+}
+
+void AMortalCryCharacter::SetGenericTeamId(const FGenericTeamId& TeamID)
+{
+	if ( HasAuthority() )
+	{
+		Team = static_cast<ETeam::Type>(TeamID.GetId());
+	}
 }

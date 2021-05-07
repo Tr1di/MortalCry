@@ -10,7 +10,8 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"Engine",
-				"AIModule"
+				"AIModule",
+				"DeveloperSettings"
 			]
 		}
 	],
@@ -131,6 +132,10 @@
 		{
 			"Name": "TestWindow",
 			"Enabled": false
+		},
+		{
+			"Name": "SunPosition",
+			"Enabled": true
 		}
 	],
 	"AdditionalPluginDirectories": [

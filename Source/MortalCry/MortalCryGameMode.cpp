@@ -3,6 +3,7 @@
 #include "MortalCryGameMode.h"
 #include "MortalCryHUD.h"
 #include "MortalCryCharacter.h"
+#include "TeamSettings.h"
 #include "UObject/ConstructorHelpers.h"
 
 AMortalCryGameMode::AMortalCryGameMode()
@@ -32,4 +33,10 @@ void AMortalCryGameMode::SwapPlayers()
 		SwapPlayerControllers(Controllers[0],
 							SpawnPlayerController(ENetRole::ROLE_Authority, ""));
 	}
+}
+
+void AMortalCryGameMode::StartPlay()
+{
+	Super::StartPlay();
+	FGenericTeamId::SetAttitudeSolver(&UTeamSettings::GetAttitude);
 }
