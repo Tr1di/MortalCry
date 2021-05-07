@@ -156,63 +156,23 @@ void AMortalCryCharacter::OnPickUpWeapon_Implementation(AActor* Item)
 {	
 	if ( Item && Item->Implements<UWeapon>() )
 	{
-		const FName SocketName = GetSocketFor(IWeapon::Execute_GetType(Item));
-
-		if (SocketName != NAME_None)
+		IInteractive::Execute_Interact(Item, this);
+	
+		Weapons.Add(Item);
+	
+		if ( !ActualWeapon )
 		{
-			IInteractive::Execute_Interact(Item, this);
-		
-			Weapons.Add(Item);
-		
-			if ( !ActualWeapon )
-			{
-				Draw(Item);
-				return;
-			}
-		
-			Sheath(Item, SocketName);
+			Draw(Item);
+			return;
 		}
+	
+		Sheath(Item);
 	}
 }
 
 void AMortalCryCharacter::OnPickUpItem(AActor* Item)
 {
 	
-}
-
-FName AMortalCryCharacter::GetSocketFor(FName WeaponType)
-{
-	if ( !Holsters.Contains(WeaponType) )
-	{
-		return NAME_None;
-	}
-	
-	TArray<FName> AllowedSockets = Holsters[WeaponType].Sockets;
-	
-	ForEachAttachedActors([&](AActor* Actor)
-	{
-		if (Actor->Implements<UWeapon>())
-		{
-			if (IWeapon::Execute_GetType(Actor) == WeaponType)
-			{
-				AllowedSockets.Remove(Actor->GetAttachParentSocketName());
-			}
-		}
-		return true;
-	});
-
-	if ( ActualWeapon )
-	{
-		const int32 Index = AllowedSockets.Num() - 1;
-		
-		if (AllowedSockets.IsValidIndex(Index))
-		{
-			AllowedSockets.RemoveAt(Index);
-		}
-		
-	}
-	
-	return AllowedSockets.IsValidIndex(0) ? AllowedSockets[0] : NAME_None;
 }
 
 AActor* AMortalCryCharacter::InteractTrace_Implementation()
@@ -396,7 +356,7 @@ void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 	}
 }
 
-void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName)
+void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon)
 {
 	if ( Weapon && Weapon->Implements<UWeapon>() )
 	{
@@ -404,19 +364,9 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName
 		{
 			SetActualWeapon(nullptr);
 		}
-
-		if (SocketName == NAME_None)
-		{
-			SocketName = GetSocketFor(IWeapon::Execute_GetType(Weapon));
-		}
-
-		if (SocketName == NAME_None)
-		{
-			return;
-		}
 		
 		IWeapon::Execute_Sheath(Weapon);
-		Weapon->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), SocketName);
+		Weapon->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("BackSocket0"));
 	}
 }
 

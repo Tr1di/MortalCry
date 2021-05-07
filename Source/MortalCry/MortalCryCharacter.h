@@ -31,15 +31,6 @@ struct FInventory : public FTableRowBase
 	TMap<TSubclassOf<AActor>, uint8> Items;
 };
 
-USTRUCT(BlueprintType)
-struct FSockets
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FName> Sockets;
-};
-
 UCLASS(config=Game)
 class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 {
@@ -58,9 +49,6 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	
 	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
 	TArray<AActor*> Weapons;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
-	TMap<FName, FSockets> Holsters;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	TMap<TSubclassOf<AActor>, uint8> Items;
@@ -150,16 +138,13 @@ protected:
 	void Draw(AActor* Weapon);
 	
 	UFUNCTION(Server, Reliable)
-	void Sheath(AActor* Weapon, FName SocketName = NAME_None);
+	void Sheath(AActor* Weapon);
 	
 	UFUNCTION(NetMulticast, Reliable)
 	void OnPickUpWeapon(AActor* Item);
 	
 	UFUNCTION()
 	void OnPickUpItem(AActor* Item);
-
-	UFUNCTION()
-	FName GetSocketFor(FName WeaponType);
 
 private:
 	UFUNCTION(Server, Reliable, WithValidation)
@@ -224,7 +209,6 @@ public:
 	FORCEINLINE class USkeletalMeshComponent* GetMeshFP() const { return MeshFP; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
-	
 	
 };
 
