@@ -3,7 +3,7 @@
 #include "MortalCryGameMode.h"
 #include "MortalCryHUD.h"
 #include "MortalCryCharacter.h"
-#include "TeamSettings.h"
+#include "Teams/TeamSettings.h"
 #include "UObject/ConstructorHelpers.h"
 
 AMortalCryGameMode::AMortalCryGameMode()
