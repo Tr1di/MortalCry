@@ -59,24 +59,7 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Complete Patrol">
-      <change afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ChaseStatus/ChangeStatus_Service.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ChaseStatus/ChangeStatus_Task.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/NPC/NPC.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/NPC/NPC_AI.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/NPC/Patrol_AI.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/NPC/patrol.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ChaseStatus/ChangeStatus.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ChaseStatus/ChangeStatus.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/GetIntoCover.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/GetIntoCover.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BB.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patroling/PatrolPath.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" afterDir="false" />
-    </list>
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Fixes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,8 +192,8 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryGameMode.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/TeamSettings.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42507,7 +42490,7 @@
       <workItem from="1620383859466" duration="2219000" />
       <workItem from="1620390330305" duration="1199000" />
       <workItem from="1620396851309" duration="10941000" />
-      <workItem from="1620423320760" duration="3398000" />
+      <workItem from="1620423320760" duration="3731000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42551,7 +42534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620424718979</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixes">
+      <created>1620427988638</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1620427988638</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42587,7 +42577,8 @@
     <MESSAGE value="D" />
     <MESSAGE value="Init" />
     <MESSAGE value="Complete Patrol" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete Patrol" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
