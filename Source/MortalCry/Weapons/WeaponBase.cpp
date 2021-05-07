@@ -25,17 +25,14 @@ void AWeaponBase::Interact_Implementation(AActor* InInstigator)
 {
 	SetOwner(InInstigator);
 	GetSkeletalMeshComponent()->SetSimulatePhysics(false);
-	GetSkeletalMeshComponent()->MoveIgnoreActors.Add(GetOwner());
-	//GetSkeletalMeshComponent()->SetCollisionProfileName("NoCollision");
+	GetSkeletalMeshComponent()->SetCollisionProfileName("NoCollision");
 }
 
 void AWeaponBase::EndInteract_Implementation(AActor* InInstigator)
 {
-	AActor* OldOwner = GetOwner();
 	SetOwner(nullptr);
 	GetSkeletalMeshComponent()->SetSimulatePhysics(true);
-	GetSkeletalMeshComponent()->MoveIgnoreActors.Remove(OldOwner);
-	//GetSkeletalMeshComponent()->SetCollisionProfileName("BlockAll");
+	GetSkeletalMeshComponent()->SetCollisionProfileName("BlockAll");
 }
 
 void AWeaponBase::GetDescription_Implementation(FString& OutString) const

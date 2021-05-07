@@ -9,7 +9,9 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
-				"Engine"
+				"Engine",
+				"AIModule",
+				"DeveloperSettings"
 			]
 		}
 	],
@@ -101,7 +103,7 @@
 		},
 		{
 			"Name": "DirGravity",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/1e8883ab1e2f44f0984006d4ab67acd4"
 		},
 		{
@@ -117,6 +119,23 @@
 		{
 			"Name": "NN",
 			"Enabled": false
+		},
+		{
+			"Name": "UIWS",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/97ef36447df7427ca9b46edf1a438731"
+		},
+		{
+			"Name": "Water",
+			"Enabled": true
+		},
+		{
+			"Name": "TestWindow",
+			"Enabled": false
+		},
+		{
+			"Name": "SunPosition",
+			"Enabled": true
 		}
 	],
 	"AdditionalPluginDirectories": [
