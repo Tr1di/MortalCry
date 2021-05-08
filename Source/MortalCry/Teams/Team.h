@@ -10,7 +10,7 @@ namespace ETeam
 	{
 		Neutral	UMETA(DisplayName = "Neutral"),
 		Traitor	UMETA(DisplayName = "Traitor"),
-		Player	UMETA(DisplayName = "Player"),
+		Support	UMETA(DisplayName = "Player"),
 		Bot		UMETA(DisplayName = "Bot"),
 		Boss	UMETA(DisplayName = "Boss"),
 		MAX		UMETA(Hidden)

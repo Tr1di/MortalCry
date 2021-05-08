@@ -9,10 +9,10 @@ UTeamSettings::UTeamSettings(const FObjectInitializer& ObjectInitializer) : Supe
 	
 	TeamAttitudes =
 	{
-		// Neutral				// Traitor				// Player				// Bot					// Boss
+		// Neutral				// Traitor				// Support				// Bot					// Boss
 		{ EAttitude::Friendly,	EAttitude::Neutral, 	EAttitude::Neutral, 	EAttitude::Neutral, 	EAttitude::Neutral  }, 	// Neutral
-		{ EAttitude::Hostile, 	EAttitude::Hostile, 	EAttitude::Hostile, 	EAttitude::Hostile, 	EAttitude::Hostile  },	// Traitor
-		{ EAttitude::Neutral, 	EAttitude::Hostile, 	EAttitude::Friendly,	EAttitude::Hostile,		EAttitude::Hostile  },	// Player
+		{ EAttitude::Neutral, 	EAttitude::Hostile, 	EAttitude::Hostile, 	EAttitude::Hostile, 	EAttitude::Hostile  },	// Traitor
+		{ EAttitude::Neutral, 	EAttitude::Hostile, 	EAttitude::Friendly,	EAttitude::Neutral,		EAttitude::Neutral  },	// Support
 		{ EAttitude::Neutral, 	EAttitude::Hostile, 	EAttitude::Hostile, 	EAttitude::Friendly,	EAttitude::Friendly },	// Bot
 		{ EAttitude::Neutral, 	EAttitude::Hostile, 	EAttitude::Hostile, 	EAttitude::Neutral, 	EAttitude::Friendly }	// Boss
 	};

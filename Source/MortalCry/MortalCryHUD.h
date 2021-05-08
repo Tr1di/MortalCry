@@ -23,7 +23,10 @@ private:
 
 protected:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void DrawInteractionText();
+	void DrawTextFor(AActor* InteractiveActor);
+
+	UFUNCTION()
+	void TraceForInteractiveActors();
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void DrawCrossHair();
