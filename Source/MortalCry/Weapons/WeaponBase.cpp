@@ -35,9 +35,9 @@ void AWeaponBase::EndInteract_Implementation(AActor* InInstigator)
 	GetSkeletalMeshComponent()->SetCollisionProfileName("BlockAll");
 }
 
-void AWeaponBase::GetDescription_Implementation(FString& OutString) const
+FString AWeaponBase::GetDescription_Implementation() const
 {
-	OutString = InteractText
+	return InteractText
 	.Replace(TEXT("<Name>"), *Execute_GetName(this))
 	.Replace(TEXT("\n"), *FString("\n"));
 }
