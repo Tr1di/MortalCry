@@ -200,9 +200,12 @@ AActor* AMortalCryCharacter::InteractTrace_Implementation()
 	
 	if (GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, ECC_Visibility, Params))
 	{
-		if ( OutHit.GetActor()->Implements<UInteractive>() )
+		if (OutHit.bBlockingHit && OutHit.GetActor())
 		{
-			return OutHit.GetActor();
+			if ( OutHit.GetActor()->Implements<UInteractive>() )
+			{
+				return OutHit.GetActor();
+			}
 		}
 	}
 
@@ -325,7 +328,7 @@ void AMortalCryCharacter::EndInteract_Implementation()
 }
 
 void AMortalCryCharacter::SetActualWeapon(AActor* NewWeapon)
-{
+{	
 	ActualWeapon = NewWeapon;
 }
 
