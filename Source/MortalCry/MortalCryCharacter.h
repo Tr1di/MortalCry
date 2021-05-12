@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 
+#include "GenericTeamAgentInterface.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Character.h"
+#include "Teams/Team.h"
 
 #include "MortalCryCharacter.generated.h"
 
@@ -30,7 +32,7 @@ struct FInventory : public FTableRowBase
 };
 
 UCLASS(config=Game)
-class AMortalCryCharacter : public ACharacter
+class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 {
 	GENERATED_BODY()
 
@@ -47,7 +49,7 @@ class AMortalCryCharacter : public ACharacter
 	
 	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
 	TArray<AActor*> Weapons;
-
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	TMap<TSubclassOf<AActor>, uint8> Items;
 
@@ -59,6 +61,9 @@ class AMortalCryCharacter : public ACharacter
 	
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
 	float Health;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Team, meta = (AllowPrivateAccess = "true"))
+	TEnumAsByte<ETeam::Type> Team;
 
 protected:
 	UPROPERTY(BlueprintAssignable)
@@ -96,36 +101,39 @@ public:
 	virtual float PlayAnimMontage(UAnimMontage* AnimMontage, float InPlayRate = 1.f, FName StartSectionName = NAME_None) override;
 
 protected:
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void OnAttack();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
     void OnEndAttack();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void OnAlterAttack();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
     void OnEndAlterAttack();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void OnAction();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
     void OnEndAction();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void OnAlterAction();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
     void OnEndAlterAction();
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void NextWeapon();
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void PreviousWeapon();
 
+	UFUNCTION(BlueprintCallable)
+	void OnSheathWeapon();
+	
 	UFUNCTION(Server, Reliable)
 	void Draw(AActor* Weapon);
 	
@@ -188,12 +196,15 @@ protected:
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-public:
+public:	
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator,
 							AActor* DamageCauser) override;
 		
 	virtual USceneComponent* GetDefaultAttachComponent() const override { return GetMesh(); }
-		
+	
+	virtual void SetGenericTeamId(const FGenericTeamId& TeamID) override;
+	virtual FGenericTeamId GetGenericTeamId() const override { return static_cast<uint8>(Team); }
+	
 	/** Returns MeshFP subobject **/
 	FORCEINLINE class USkeletalMeshComponent* GetMeshFP() const { return MeshFP; }
 	/** Returns FirstPersonCameraComponent subobject **/

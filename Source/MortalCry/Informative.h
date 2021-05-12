@@ -24,8 +24,8 @@ class MORTALCRY_API IInformative
 public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FString GetName() const;
-
+	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void GetDescription(FString& OutString) const;
+	FString GetDescription() const;
 	
 };
