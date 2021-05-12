@@ -13,8 +13,10 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "Engine/DemoNetDriver.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
+#include "Perception/AISense_Damage.h"
 #include "Weapons/Weapon.h"
 
 // #include "../Plugins/Online/OnlineSubsystemSteam/Source/Public/OnlineSubsystemSteam.h"
@@ -25,7 +27,7 @@ DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 // AMortalCryCharacter
 
 AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
-{	
+{
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 
@@ -64,7 +66,7 @@ void AMortalCryCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if(IGenericTeamAgentInterface* Agent = Cast<IGenericTeamAgentInterface>(GetController()))
+	if( IGenericTeamAgentInterface* Agent = Cast<IGenericTeamAgentInterface>(GetController()) )
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Setting team to %i"), static_cast<uint8>(Team))
 		Agent->SetGenericTeamId(static_cast<uint8>(Team));
@@ -156,17 +158,22 @@ void AMortalCryCharacter::OnPickUpWeapon_Implementation(AActor* Item)
 {	
 	if ( Item && Item->Implements<UWeapon>() )
 	{
-		IInteractive::Execute_Interact(Item, this);
-	
-		Weapons.Add(Item);
-	
-		if ( !ActualWeapon )
+		const FName Holster = GetSocketFor(Item);
+
+		if (Holster != NAME_None)
 		{
-			Draw(Item);
-			return;
-		}
+			IInteractive::Execute_Interact(Item, this);
 	
-		Sheath(Item);
+			Weapons.Add(Item);
+	
+			if ( !ActualWeapon )
+			{
+				Draw(Item);
+				return;
+			}
+	
+			Sheath(Item, Holster);
+		}
 	}
 }
 
@@ -324,16 +331,20 @@ void AMortalCryCharacter::SetActualWeapon(AActor* NewWeapon)
 
 void AMortalCryCharacter::NextWeapon()
 {
-	const int32 Index = Weapons.Find(ActualWeapon) + 1;
-	Draw(Weapons[Index % Weapons.Num()]);
-	//while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && ++Index < Weapons.Num() );
+	if (Weapons.Num() != 0)
+	{
+		const int32 Index = Weapons.Find(ActualWeapon) + 1;
+		Draw(Weapons[Index % Weapons.Num()]);
+	}
 }
 
 void AMortalCryCharacter::PreviousWeapon()
 {
-	const int32 Index = Weapons.Find(ActualWeapon) + Weapons.Num() - 1;
-	Draw(Weapons[Index % Weapons.Num()]);
-	//while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && --Index > Weapons.Num() );
+	if (Weapons.Num() != 0)
+	{
+		const int32 Index = Weapons.Find(ActualWeapon) + Weapons.Num() - 1;
+		Draw(Weapons[Index % Weapons.Num()]);
+	}
 }
 
 void AMortalCryCharacter::OnSheathWeapon()
@@ -356,7 +367,7 @@ void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 	}
 }
 
-void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon)
+void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName)
 {
 	if ( Weapon && Weapon->Implements<UWeapon>() )
 	{
@@ -364,10 +375,58 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon)
 		{
 			SetActualWeapon(nullptr);
 		}
+
+		if (SocketName == NAME_None)
+		{
+			SocketName = GetSocketFor(Weapon);
+		}
+
+		if (SocketName == NAME_None)
+		{
+			return;
+		}
 		
 		IWeapon::Execute_Sheath(Weapon);
-		Weapon->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("BackSocket0"));
+		Weapon->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), SocketName);
 	}
+}
+
+FName AMortalCryCharacter::GetSocketFor(AActor* Weapon)
+{
+	if ( !Weapon || !Weapon->Implements<UWeapon>())
+	{
+		return NAME_None;
+	}
+	
+	const FName WeaponType = IWeapon::Execute_GetType(Weapon);
+
+	if ( !Holsters.Contains(WeaponType) )
+	{
+		return NAME_None;
+	}
+	
+	TArray<FName> AllowedHolsters = Holsters[WeaponType].Holsters;
+	
+	ForEachAttachedActors([&](AActor* Actor)
+	{
+		if (Actor->Implements<UWeapon>())
+		{
+			AllowedHolsters.Remove(Actor->GetAttachParentSocketName());
+		}
+		return true;
+	});
+
+	if ( ActualWeapon && IWeapon::Execute_GetType(ActualWeapon) == WeaponType )
+	{
+		const int32 Index = AllowedHolsters.Num() - 1;
+
+		if (AllowedHolsters.IsValidIndex(Index))
+		{
+			AllowedHolsters.RemoveAt(Index);
+		}
+	}
+
+	return AllowedHolsters.IsValidIndex(0) ? AllowedHolsters[0] : NAME_None;
 }
 
 void AMortalCryCharacter::MoveForward(float Value)
@@ -445,6 +504,13 @@ float AMortalCryCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEv
 {
 	const float ActualDamage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
 	UpdateHealth(-ActualDamage);
+	
+	if (FPointDamageEvent* const PointDamage = (FPointDamageEvent*)&DamageEvent)
+	{
+		const FHitResult Hit = PointDamage->HitInfo;
+		UAISense_Damage::ReportDamageEvent(GetWorld(), this, EventInstigator, ActualDamage, Hit.TraceStart, Hit.ImpactPoint);
+	}
+	
 	return ActualDamage;
 }
 
