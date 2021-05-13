@@ -4,10 +4,8 @@
 
 #include "CoreMinimal.h"
 
-#include "GenericTeamAgentInterface.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Character.h"
-#include "Teams/Team.h"
 
 #include "MortalCryCharacter.generated.h"
 
@@ -31,17 +29,8 @@ struct FInventory : public FTableRowBase
 	TMap<TSubclassOf<AActor>, uint8> Items;
 };
 
-USTRUCT(BlueprintType)
-struct FHolsters
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FName> Holsters;
-};
-
 UCLASS(config=Game)
-class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
+class AMortalCryCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -52,15 +41,15 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "true"))
-	TMap<FName, FHolsters> Holsters;
 	
-	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "Weapon"))
-	TArray<AActor*> Weapons;
-	
-	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Weapon, meta = (AllowPrivateAccess = "true", MustImplement = "Weapon"))
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Weapon, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
 	AActor* ActualWeapon;
+	
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
+	TArray<AActor*> Weapons;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Weapons, meta = (AllowPrivateAccess = "true"))
+	TArray<FName> Sockets;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	TMap<TSubclassOf<AActor>, uint8> Items;
@@ -68,21 +57,18 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	UPROPERTY(BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true", MustImplement = "Interactive"))
 	AActor* ActualInteractiveActor;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
 	float FullHealth;
 	
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
 	float Health;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true"))
-	float InteractLength;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Team, meta = (AllowPrivateAccess = "true"))
-	TEnumAsByte<ETeam::Type> Team;
-
 protected:
 	UPROPERTY(BlueprintAssignable)
 	FPickUpSiganture OnPickUp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true"))
+	float InteractLength;
 
 public:
 	AMortalCryCharacter(const FObjectInitializer& ObjectInitializer);
@@ -113,53 +99,50 @@ public:
 	virtual float PlayAnimMontage(UAnimMontage* AnimMontage, float InPlayRate = 1.f, FName StartSectionName = NAME_None) override;
 
 protected:
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void OnAttack();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
     void OnEndAttack();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void OnAlterAttack();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
     void OnEndAlterAttack();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void OnAction();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
     void OnEndAction();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void OnAlterAction();
+
+	UFUNCTION()
+	void DropItem();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
     void OnEndAlterAction();
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void NextWeapon();
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void PreviousWeapon();
 
-	UFUNCTION(BlueprintCallable)
-	void OnSheathWeapon();
-	
-	UFUNCTION(BlueprintCallable, Server, Reliable)
+	UFUNCTION(Server, Reliable)
 	void Draw(AActor* Weapon);
 	
-	UFUNCTION(BlueprintCallable, Server, Reliable)
-	void Sheath(AActor* Weapon, FName SocketName = NAME_None);
+	UFUNCTION(Server, Reliable)
+	void Sheath(AActor* Weapon);
 	
 	UFUNCTION(NetMulticast, Reliable)
 	void OnPickUpWeapon(AActor* Item);
 	
 	UFUNCTION()
 	void OnPickUpItem(AActor* Item);
-
-	UFUNCTION()
-	FName GetSocketFor(AActor* Weapon);
 
 private:
 	UFUNCTION(Server, Reliable, WithValidation)
@@ -200,8 +183,6 @@ public:
 public:
 	void OnCrouch();
 	void OnEndCrouch();
-	
-	UFUNCTION(BlueprintCallable)
 	void OnCrouchSwitch();
 	
 protected:
@@ -213,15 +194,12 @@ protected:
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-public:	
+public:
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator,
 							AActor* DamageCauser) override;
-	
-	virtual USceneComponent* GetDefaultAttachComponent() const override { return IsPlayerControlled() && IsLocallyControlled() ? GetMeshFP() : GetMesh(); }
-	
-	virtual void SetGenericTeamId(const FGenericTeamId& TeamID) override;
-	virtual FGenericTeamId GetGenericTeamId() const override { return static_cast<uint8>(Team); }
-	
+		
+	virtual USceneComponent* GetDefaultAttachComponent() const override { return GetMesh(); }
+		
 	/** Returns MeshFP subobject **/
 	FORCEINLINE class USkeletalMeshComponent* GetMeshFP() const { return MeshFP; }
 	/** Returns FirstPersonCameraComponent subobject **/
