@@ -362,8 +362,8 @@ void AMortalCryCharacter::OnDropItem()
 	if ( ActualWeapon )
 	{
 		Weapons.Remove(ActualWeapon);
-		ActualWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		IInteractive::Execute_EndInteract(ActualWeapon);
+		ActualWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		SetActualWeapon(nullptr);
 	}
 }
