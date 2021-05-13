@@ -35,7 +35,7 @@ public:
 	virtual void Interact_Implementation(AActor* InInstigator) override;
 	virtual void EndInteract_Implementation() override;
 
-	virtual void GetDescription_Implementation(FString& OutString) const override;
+	virtual FString GetDescription_Implementation() const override;
 	
 	virtual FString GetName_Implementation() const override { return Name.ToString(); }
 	

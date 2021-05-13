@@ -18,37 +18,23 @@ AMortalCryHUD::AMortalCryHUD()
 	CrosshairTex = CrosshairTexObj.Object;
 }
 
+void AMortalCryHUD::DrawTextFor_Implementation(AActor* InteractiveActor)
+{}
+
+void AMortalCryHUD::TraceForInteractiveActors()
+{
+	if ( AMortalCryPlayerController* PC = Cast<AMortalCryPlayerController>(GetOwningPlayerController()) )
+	{
+		DrawTextFor(PC->Trace());
+	}
+}
+
 void AMortalCryHUD::DrawHUD()
 {
 	Super::DrawHUD();
 
 	DrawCrossHair();
-	DrawInteractionText();
-}
-
-void AMortalCryHUD::DrawInteractionText_Implementation()
-{
-	AActor* InteractiveActor = nullptr;
-
-	if ( AMortalCryPlayerController* PC = Cast<AMortalCryPlayerController>(GetOwningPlayerController()) )
-	{
-		InteractiveActor = PC->Trace();
-	}
-
-	if ( InteractiveActor && InteractiveActor->Implements<UInformative>() )
-	{
-		const FString Text = IInformative::Execute_GetName(InteractiveActor);
-		const FVector ProjectVector = Project(InteractiveActor->GetActorLocation());
-
-		if ( ProjectVector.Z > 0 )
-		{
-			float Width, Height;
-			GetTextSize(Text, Width, Height);
-
-			Width /= 2;
-			DrawText(Text, FLinearColor::White, ProjectVector.X, ProjectVector.Y - Height);
-		}
-	}
+	TraceForInteractiveActors();
 }
 
 void AMortalCryHUD::DrawCrossHair_Implementation()
