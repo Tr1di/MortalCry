@@ -145,6 +145,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void OnSheathWeapon();
+
+	UFUNCTION()
+	void OnDropItem();
 	
 	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Draw(AActor* Weapon);

@@ -28,6 +28,6 @@ public:
 	void Interact(AActor* InInstigator);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndInteract(AActor* InInstigator);
+    void EndInteract();
     
 };

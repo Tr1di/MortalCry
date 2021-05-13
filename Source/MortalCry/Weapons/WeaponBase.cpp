@@ -28,7 +28,7 @@ void AWeaponBase::Interact_Implementation(AActor* InInstigator)
 	GetSkeletalMeshComponent()->SetCollisionProfileName("NoCollision");
 }
 
-void AWeaponBase::EndInteract_Implementation(AActor* InInstigator)
+void AWeaponBase::EndInteract_Implementation()
 {
 	SetOwner(nullptr);
 	GetSkeletalMeshComponent()->SetSimulatePhysics(true);
