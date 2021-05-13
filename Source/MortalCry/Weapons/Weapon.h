@@ -52,4 +52,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void Sheath();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	FName GetType() const;
+	
 };
