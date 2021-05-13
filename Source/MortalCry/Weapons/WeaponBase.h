@@ -33,7 +33,7 @@ public:
 	virtual void Sheath_Implementation() override;
 	
 	virtual void Interact_Implementation(AActor* InInstigator) override;
-	virtual void EndInteract_Implementation(AActor* InInstigator) override;
+	virtual void EndInteract_Implementation() override;
 
 	virtual void GetDescription_Implementation(FString& OutString) const override;
 	

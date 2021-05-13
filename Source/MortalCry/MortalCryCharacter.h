@@ -48,6 +48,9 @@ class AMortalCryCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true", MustImplement = "WeaponBase"))
 	TArray<AActor*> Weapons;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Weapons, meta = (AllowPrivateAccess = "true"))
+	TArray<FName> Sockets;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	TMap<TSubclassOf<AActor>, uint8> Items;
 
@@ -116,6 +119,9 @@ protected:
 	
 	UFUNCTION()
 	void OnAlterAction();
+
+	UFUNCTION()
+	void DropItem();
 	
 	UFUNCTION()
     void OnEndAlterAction();

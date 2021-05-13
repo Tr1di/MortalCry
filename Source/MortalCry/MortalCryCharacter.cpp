@@ -107,6 +107,8 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMortalCryCharacter::Interact);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AMortalCryCharacter::EndInteract);
+
+	PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AMortalCryCharacter::DropItem);
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMortalCryCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMortalCryCharacter::MoveRight);
@@ -151,7 +153,6 @@ void AMortalCryCharacter::OnPickUpWeapon_Implementation(AActor* Item)
 		IInteractive::Execute_Interact(Item, this);
 		
 		Weapons.Add(Item);
-		MoveIgnoreActorAdd(Item);
 		
 		if ( !ActualWeapon )
 		{
@@ -256,6 +257,18 @@ void AMortalCryCharacter::OnAlterAction()
 	}
 }
 
+void AMortalCryCharacter::DropItem()
+{
+	if ( !ActualWeapon )
+	{
+		return;
+	}
+	Weapons.Remove(ActualWeapon);
+	ActualWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+	IInteractive::Execute_EndInteract(ActualWeapon);
+	SetActualWeapon(nullptr);
+}
+
 void AMortalCryCharacter::OnEndAlterAction()
 {
 	if ( ActualWeapon )
@@ -300,7 +313,7 @@ void AMortalCryCharacter::ServerEndInteract_Implementation()
 {
 	if ( ActualInteractiveActor )
 	{
-		IInteractive::Execute_EndInteract(ActualInteractiveActor, this);
+		IInteractive::Execute_EndInteract(ActualInteractiveActor);
 		ActualInteractiveActor = nullptr;
 	}
 }
@@ -317,16 +330,20 @@ void AMortalCryCharacter::SetActualWeapon(AActor* NewWeapon)
 
 void AMortalCryCharacter::NextWeapon()
 {
-	const int32 Index = Weapons.Find(ActualWeapon) + 1;
-	Draw(Weapons[Index % Weapons.Num()]);
-	//while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && ++Index < Weapons.Num() );
+	if (Weapons.Num() > 0)
+	{
+		const int32 Index = Weapons.Find(ActualWeapon) + 1;
+		Draw(Weapons[Index % Weapons.Num()]);
+	}
 }
 
 void AMortalCryCharacter::PreviousWeapon()
 {
-	const int32 Index = Weapons.Find(ActualWeapon) + Weapons.Num() - 1;
-	Draw(Weapons[Index % Weapons.Num()]);
-	//while( !SetActualWeapon(Weapons[Index % Weapons.Num()]) && --Index > Weapons.Num() );
+	if (Weapons.Num() > 0)
+	{
+		const int32 Index = Weapons.Find(ActualWeapon) + Weapons.Num() - 1;
+		Draw(Weapons[Index % Weapons.Num()]);
+	}
 }
 
 void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
