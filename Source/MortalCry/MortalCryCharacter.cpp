@@ -116,6 +116,8 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMortalCryCharacter::Interact);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AMortalCryCharacter::EndInteract);
 
+	PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AMortalCryCharacter::OnDropItem);
+
 	PlayerInputComponent->BindAction("SheathWeapon", IE_Pressed, this, &AMortalCryCharacter::OnSheathWeapon);
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMortalCryCharacter::MoveForward);
@@ -317,7 +319,7 @@ void AMortalCryCharacter::ServerEndInteract_Implementation()
 {
 	if ( ActualInteractiveActor )
 	{
-		IInteractive::Execute_EndInteract(ActualInteractiveActor, this);
+		IInteractive::Execute_EndInteract(ActualInteractiveActor);
 		ActualInteractiveActor = nullptr;
 	}
 }
@@ -353,6 +355,17 @@ void AMortalCryCharacter::PreviousWeapon()
 void AMortalCryCharacter::OnSheathWeapon()
 {
 	Sheath(ActualWeapon);
+}
+
+void AMortalCryCharacter::OnDropItem()
+{
+	if ( ActualWeapon )
+	{
+		Weapons.Remove(ActualWeapon);
+		IInteractive::Execute_EndInteract(ActualWeapon);
+		ActualWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		SetActualWeapon(nullptr);
+	}
 }
 
 void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
