@@ -46,7 +46,7 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 	FirstPersonCameraComponent->bUsePawnControlRotation = true;
 
 	MeshFP = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMeshFP"));
-	MeshFP->SetupAttachment(GetMesh());
+	MeshFP->SetupAttachment(GetFirstPersonCameraComponent());
 	MeshFP->SetOnlyOwnerSee(true);
 	
 	// Default offset from the character location for projectiles to spawn
@@ -364,9 +364,9 @@ void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 		SetActualWeapon(Weapon);
 		
 		IWeapon::Execute_Draw(Weapon);
-		Weapon->AttachToComponent(IsPlayerControlled() && IsLocallyControlled() ? MeshFP : GetMesh(),
+		Weapon->AttachToActor(this,
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
-			TEXT("GripPoint"));
+			IsPlayerControlled() && IsLocallyControlled() ? TEXT("GripPointFP") : TEXT("GripPoint"));
 	}
 }
 
@@ -390,7 +390,9 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName
 		}
 		
 		IWeapon::Execute_Sheath(Weapon);
-		Weapon->AttachToComponent(GetMesh(),FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), SocketName);
+		Weapon->AttachToActor(this,
+			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
+			SocketName);
 	}
 }
 

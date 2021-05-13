@@ -217,7 +217,7 @@ public:
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator,
 							AActor* DamageCauser) override;
 	
-	virtual USceneComponent* GetDefaultAttachComponent() const override { return GetMesh(); }
+	virtual USceneComponent* GetDefaultAttachComponent() const override { return IsPlayerControlled() && IsLocallyControlled() ? GetMeshFP() : GetMesh(); }
 	
 	virtual void SetGenericTeamId(const FGenericTeamId& TeamID) override;
 	virtual FGenericTeamId GetGenericTeamId() const override { return static_cast<uint8>(Team); }
