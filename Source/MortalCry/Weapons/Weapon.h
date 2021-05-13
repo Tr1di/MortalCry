@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 
+#include <ThirdParty/CryptoPP/5.6.5/include/argnames.h>
+
 #include "UObject/Interface.h"
 #include "Weapon.generated.h"
 
@@ -55,5 +57,4 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FName GetType() const;
-	
 };
