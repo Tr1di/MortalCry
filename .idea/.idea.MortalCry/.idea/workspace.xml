@@ -61,14 +61,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/CurvedHUD_FX_Inst.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/CurvedHUD_FX_Inst.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/HUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/HealthWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/HealthWidget.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/AimOffset/Rifle/Aim_offset.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/AimOffset/Rifle/Aim_offset.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/MCAnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/MCAnimBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/TP/ThirdPerson_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/TP/ThirdPerson_AnimBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/InfoBlock.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/InfoBlock.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TestCube.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TestCube.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MortalCry.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/MortalCry.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42520,6 +42525,12 @@
       <workItem from="1620850357199" duration="5175000" />
       <workItem from="1620891519727" duration="4636000" />
       <workItem from="1620949294435" duration="93000" />
+      <workItem from="1620983384811" duration="170000" />
+      <workItem from="1621022336603" duration="647000" />
+      <workItem from="1621109903309" duration="2276000" />
+      <workItem from="1621169881820" duration="151000" />
+      <workItem from="1621170260016" duration="157000" />
+      <workItem from="1621181394398" duration="1562000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42626,7 +42637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620927124861</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update">
+      <created>1620983465250</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620983465250</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42669,7 +42687,8 @@
     <MESSAGE value="Map" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Da" />
-    <option name="LAST_COMMIT_MESSAGE" value="Da" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
