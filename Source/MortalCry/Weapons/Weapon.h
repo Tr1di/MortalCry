@@ -29,25 +29,25 @@ public:
     void Attack();
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAttack();
+    void StopAttacking();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void AlterAttack();
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAlterAttack();
+    void StopAlterAttack();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void Action();
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAction();
+    void StopAction();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void AlterAction();
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void EndAlterAction();
+    void StopAlterAction();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void Draw();
