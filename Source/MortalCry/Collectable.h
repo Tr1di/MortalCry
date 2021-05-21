@@ -24,6 +24,6 @@ class MORTALCRY_API ICollectable : public IInteractive
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FVector2D GetSize() const;
+	int32 GetSize() const;
 	
 };

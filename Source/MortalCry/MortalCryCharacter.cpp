@@ -48,6 +48,8 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 	MeshFP = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMeshFP"));
 	MeshFP->SetupAttachment(GetFirstPersonCameraComponent());
 	MeshFP->SetOnlyOwnerSee(true);
+
+	Inventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
 	
 	// Default offset from the character location for projectiles to spawn
 	// GunOffset = FVector(100.0f, 0.0f, 10.0f);
@@ -76,13 +78,13 @@ void AMortalCryCharacter::BeginPlay()
 	{
 		IInteractive::Execute_Interact(Weapon, this);
 
-		if (Weapon == ActualWeapon)
-		{
-			Draw(ActualWeapon);
-			continue;
-		}
-
-		Sheath(Weapon);
+		// if (Weapon == ActualWeapon)
+		// {
+		// 	Draw(ActualWeapon);
+		// 	continue;
+		// }
+		//
+		// Sheath(Weapon);
 	}
 }
 
@@ -119,9 +121,9 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMortalCryCharacter::Interact);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AMortalCryCharacter::EndInteract);
 
-	PlayerInputComponent->BindAction("DropItem", IE_Released, this, &AMortalCryCharacter::OnDropItem);
+	PlayerInputComponent->BindAction("DropItem", IE_Released, this, &AMortalCryCharacter::DropActualWeapon);
 
-	PlayerInputComponent->BindAction("SheathWeapon", IE_Released, this, &AMortalCryCharacter::OnSheathWeapon);
+	PlayerInputComponent->BindAction("SheathWeapon", IE_Released, this, &AMortalCryCharacter::SheathActualWeapon);
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMortalCryCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMortalCryCharacter::MoveRight);
@@ -145,6 +147,7 @@ void AMortalCryCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(AMortalCryCharacter, ActualWeapon);
+	DOREPLIFETIME(AMortalCryCharacter, ActualItem);
 	DOREPLIFETIME(AMortalCryCharacter, Weapons);
 	
 	DOREPLIFETIME(AMortalCryCharacter, Health);
@@ -163,10 +166,10 @@ void AMortalCryCharacter::OnPickUpWeapon(AActor* Item)
 	const FName Holster = GetSocketFor(Item);
 	if (Holster == NAME_None) { return;	}
 
-	OnPickUpWeaponMulticast(Item);
 	Item->SetReplicateMovement(false);
+	IInteractive::Execute_Interact(Item, this);
 	Weapons.AddUnique(Item);
-
+	
 	if ( !ActualWeapon )
 	{
 		SetActualWeapon(Item);
@@ -176,14 +179,12 @@ void AMortalCryCharacter::OnPickUpWeapon(AActor* Item)
 	Sheath(Item, Holster);
 }
 
-void AMortalCryCharacter::OnPickUpWeaponMulticast_Implementation(AActor* Item)
-{
-	IInteractive::Execute_Interact(Item, this);
-}
-
 void AMortalCryCharacter::OnPickUpItem(AActor* Item)
 {
-	
+	if ( !Item ) { return; }
+	if ( Item->Implements<UWeapon>() ) { return; }
+
+	Inventory->Collect(Item);
 }
 
 AActor* AMortalCryCharacter::InteractTrace_Implementation()
@@ -373,9 +374,9 @@ void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 	if ( Weapon && Weapon->Implements<UWeapon>() )
 	{		
 		IWeapon::Execute_Draw(Weapon);
-		Weapon->AttachToActor(this,
+		Weapon->GetRootComponent()->AttachToComponent(GetDefaultAttachComponent(),
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
-			IsPlayerControlled() && IsLocallyControlled() ? TEXT("GripPointFP") : TEXT("GripPoint"));
+			/*IsPlayerControlled() && IsLocallyControlled() ? TEXT("GripPointFP") :*/ TEXT("GripPoint"));
 	}
 }
 
@@ -394,26 +395,41 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName
 		}
 
 		IWeapon::Execute_Sheath(Weapon);
-		Weapon->AttachToActor(this,
+		Weapon->GetRootComponent()->AttachToComponent(GetDefaultAttachComponent(),
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 			SocketName);
 	}
 }
 
-void AMortalCryCharacter::OnSheathWeapon()
+void AMortalCryCharacter::SheathActualWeapon()
 {
 	SetActualWeapon(nullptr);
 }
 
-void AMortalCryCharacter::OnDropItem()
+void AMortalCryCharacter::DropActualWeapon()
 {
-	if ( ActualWeapon )
+	Drop(ActualWeapon);
+}
+
+void AMortalCryCharacter::Drop_Implementation(AActor* Item)
+{
+	OnDrop.Broadcast(Item);
+	IInteractive::Execute_StopInteracting(Item);
+}
+
+void AMortalCryCharacter::OnDropWeapon(AActor* Item)
+{
+	if (Item && Item->Implements<UWeapon>())
 	{
-		AActor* OldWeapon = ActualWeapon; 
-		SetActualWeapon(nullptr);
-		Weapons.Remove(OldWeapon);
-		OldWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-		IInteractive::Execute_StopInteracting(OldWeapon);
+		Weapons.Remove(Item);
+		
+		if (ActualWeapon == Item)
+		{
+			SetActualWeapon(nullptr);
+			NextWeapon();
+		}
+		
+		Item->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 	}
 }
 

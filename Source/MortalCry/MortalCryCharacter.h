@@ -5,13 +5,14 @@
 #include "CoreMinimal.h"
 
 #include "GenericTeamAgentInterface.h"
+#include "InventoryComponent.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Character.h"
 #include "Teams/Team.h"
 
 #include "MortalCryCharacter.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam( FPickUpSiganture, AActor*, Item );
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam( FInteractSiganture, AActor*, Item );
 
 class AWeaponBase;
 class UInputComponent;
@@ -20,7 +21,7 @@ class USkeletalMeshComponent;
 class UCameraComponent;
 
 USTRUCT(BlueprintType)
-struct FInventory : public FTableRowBase
+struct FInventoryData : public FTableRowBase
 {
 	GENERATED_BODY()
 	
@@ -53,6 +54,9 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
+	UInventoryComponent* Inventory;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	TMap<FName, FHolsters> Holsters;
 	
@@ -61,28 +65,12 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	
 	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Weapon, meta = (AllowPrivateAccess = "true", MustImplement = "Weapon"))
 	AActor* ActualWeapon;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
-	TMap<TSubclassOf<AActor>, uint8> Items;
 
-	UPROPERTY(BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true", MustImplement = "Interactive"))
-	AActor* ActualInteractiveActor;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health, meta = (AllowPrivateAccess = "true"))
-	float FullHealth;
-	
-	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
-	float Health;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true"))
-	float InteractLength;
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Weapon, meta = (AllowPrivateAccess = "true"))
+	AActor* ActualItem;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Team, meta = (AllowPrivateAccess = "true"))
 	TEnumAsByte<ETeam::Type> Team;
-
-protected:
-	UPROPERTY(BlueprintAssignable)
-	FPickUpSiganture OnPickUp;
 
 public:
 	AMortalCryCharacter(const FObjectInitializer& ObjectInitializer);
@@ -94,13 +82,17 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+	
+	//////////
+	// Health
+private:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health, meta = (AllowPrivateAccess = "true"))
+	float FullHealth;
+	
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
+	float Health;
 
-	UFUNCTION(BlueprintCallable, Server, Reliable)
-	virtual void PickUp(AActor* Item);
-
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	AActor* InteractTrace();
-
+public:
 	UFUNCTION(BlueprintPure, Category = Health)
 	float GetHealth() const;
 
@@ -109,59 +101,49 @@ public:
 
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = Health)
 	void UpdateHealth(float HealthChange);
+
+	//////////
+	// Interact
+private:
+	UPROPERTY(BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true", MustImplement = "Interactive"))
+	AActor* ActualInteractiveActor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true"))
+	float InteractLength;
+
+public:
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	AActor* InteractTrace();
+
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+	void PickUp(AActor* Item);
 	
-	virtual float PlayAnimMontage(UAnimMontage* AnimMontage, float InPlayRate = 1.f, FName StartSectionName = NAME_None) override;
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+	void Drop(AActor* Item);
 
 protected:
-	UFUNCTION(BlueprintCallable)
-	void Attack();
-	
-	UFUNCTION(BlueprintCallable)
-    void StopAttacking();
-	
-	UFUNCTION(BlueprintCallable)
-	void AlterAttack();
-	
-	UFUNCTION(BlueprintCallable)
-    void StopAlterAttack();
-	
-	UFUNCTION(BlueprintCallable)
-	void Action();
-	
-	UFUNCTION(BlueprintCallable)
-    void StopAction();
-	
-	UFUNCTION(BlueprintCallable)
-	void AlterAction();
-	
-	UFUNCTION(BlueprintCallable)
-    void StopAlterAction();
+	UPROPERTY(BlueprintAssignable)
+	FInteractSiganture OnPickUp;
 
-	UFUNCTION(BlueprintCallable)
-	void NextWeapon();
+	UPROPERTY(BlueprintAssignable)
+	FInteractSiganture OnDrop;
 
-	UFUNCTION(BlueprintCallable)
-	void PreviousWeapon();
-
-	UFUNCTION(BlueprintCallable)
-	void OnSheathWeapon();
-
-	UFUNCTION()
-	void OnDropItem();
-	
+private:
 	UFUNCTION()
 	void OnPickUpWeapon(AActor* Item);
 	
 	UFUNCTION()
 	void OnPickUpItem(AActor* Item);
 
-private:
-	UFUNCTION(NetMulticast, Reliable)
-	void OnPickUpWeaponMulticast(AActor* Item);
-
-protected:
 	UFUNCTION()
-	FName GetSocketFor(AActor* Weapon);
+	void OnDropWeapon(AActor* Item);
+
+protected:	
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void Interact();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void EndInteract();
 
 private:
 	UFUNCTION(Server, Reliable, WithValidation)
@@ -170,13 +152,47 @@ private:
 	UFUNCTION(Server, Reliable)
 	void ServerStopInteract();
 
-protected:	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void Interact();
+public:
+	UFUNCTION()
+	FName GetSocketFor(AActor* Weapon);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void EndInteract();
+protected:
+	UFUNCTION(BlueprintCallable)
+	void Attack();
 	
+	UFUNCTION(BlueprintCallable)
+	void StopAttacking();
+	
+	UFUNCTION(BlueprintCallable)
+	void AlterAttack();
+	
+	UFUNCTION(BlueprintCallable)
+	void StopAlterAttack();
+	
+	UFUNCTION(BlueprintCallable)
+	void Action();
+	
+	UFUNCTION(BlueprintCallable)
+	void StopAction();
+	
+	UFUNCTION(BlueprintCallable)
+	void AlterAction();
+	
+	UFUNCTION(BlueprintCallable)
+	void StopAlterAction();
+
+	UFUNCTION(BlueprintCallable)
+	void NextWeapon();
+
+	UFUNCTION(BlueprintCallable)
+	void PreviousWeapon();
+
+	UFUNCTION(BlueprintCallable)
+	void SheathActualWeapon();
+
+	UFUNCTION(BlueprintCallable)
+	void DropActualWeapon();
+
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
@@ -223,10 +239,12 @@ protected:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 public:	
+	virtual float PlayAnimMontage(UAnimMontage* AnimMontage, float InPlayRate = 1.f, FName StartSectionName = NAME_None) override;
+
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator,
 							AActor* DamageCauser) override;
 	
-	virtual USceneComponent* GetDefaultAttachComponent() const override { return IsPlayerControlled() && IsLocallyControlled() ? GetMeshFP() : GetMesh(); }
+	virtual USceneComponent* GetDefaultAttachComponent() const override { return /*IsPlayerControlled() && IsLocallyControlled() ? GetMeshFP() :*/ GetMesh(); }
 	
 	virtual void SetGenericTeamId(const FGenericTeamId& TeamID) override;
 	virtual FGenericTeamId GetGenericTeamId() const override { return static_cast<uint8>(Team); }
