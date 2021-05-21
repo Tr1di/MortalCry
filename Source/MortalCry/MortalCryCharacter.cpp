@@ -54,10 +54,7 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 
     bReplicates = true;
 
-	InteractLength = 100.f;
-	
-	OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpWeapon);
-	OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpItem);
+	InteractLength = 150.f;
 	
 	FullHealth = Health = 1000.f;
 }
@@ -66,21 +63,27 @@ void AMortalCryCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpWeapon);
+	//OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpItem);
+	
 	if( IGenericTeamAgentInterface* Agent = Cast<IGenericTeamAgentInterface>(GetController()) )
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Setting team to %i"), static_cast<uint8>(Team))
 		Agent->SetGenericTeamId(static_cast<uint8>(Team));
 	}
-	
-	ForEachAttachedActors([&](AActor* AttachedActor)
+
+	for ( AActor* Weapon : Weapons )
 	{
-		if (AttachedActor && AttachedActor->Implements<UInteractive>())
+		IInteractive::Execute_Interact(Weapon, this);
+
+		if (Weapon == ActualWeapon)
 		{
-			IInteractive::Execute_Interact(AttachedActor, this);
-			MoveIgnoreActorAdd(AttachedActor);
+			Draw(ActualWeapon);
+			continue;
 		}
-		return true;
-	});
+
+		Sheath(Weapon);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -94,31 +97,31 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
-	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMortalCryCharacter::OnAttack);
-	PlayerInputComponent->BindAction("Attack", IE_Released, this, &AMortalCryCharacter::OnEndAttack);
+	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMortalCryCharacter::Attack);
+	PlayerInputComponent->BindAction("Attack", IE_Released, this, &AMortalCryCharacter::StopAttacking);
 
-	PlayerInputComponent->BindAction("AlterAttack", IE_Pressed, this, &AMortalCryCharacter::OnAlterAttack);
-	PlayerInputComponent->BindAction("AlterAttack", IE_Released, this, &AMortalCryCharacter::OnEndAlterAttack);
+	PlayerInputComponent->BindAction("AlterAttack", IE_Pressed, this, &AMortalCryCharacter::AlterAttack);
+	PlayerInputComponent->BindAction("AlterAttack", IE_Released, this, &AMortalCryCharacter::StopAlterAttack);
 
-	PlayerInputComponent->BindAction("Action", IE_Pressed, this, &AMortalCryCharacter::OnAction);
-	PlayerInputComponent->BindAction("Action", IE_Released, this, &AMortalCryCharacter::OnEndAction);
+	PlayerInputComponent->BindAction("Action", IE_Pressed, this, &AMortalCryCharacter::Action);
+	PlayerInputComponent->BindAction("Action", IE_Released, this, &AMortalCryCharacter::StopAction);
 
-	PlayerInputComponent->BindAction("AlterAction", IE_Pressed, this, &AMortalCryCharacter::OnAlterAction);
-	PlayerInputComponent->BindAction("AlterAction", IE_Released, this, &AMortalCryCharacter::OnEndAlterAction);
+	PlayerInputComponent->BindAction("AlterAction", IE_Pressed, this, &AMortalCryCharacter::AlterAction);
+	PlayerInputComponent->BindAction("AlterAction", IE_Released, this, &AMortalCryCharacter::StopAlterAction);
 
 	PlayerInputComponent->BindAction("NextWeapon", IE_Pressed, this, &AMortalCryCharacter::NextWeapon);
 	PlayerInputComponent->BindAction("PreviousWeapon", IE_Released, this, &AMortalCryCharacter::PreviousWeapon);
 
-	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AMortalCryCharacter::OnCrouch);
-	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &AMortalCryCharacter::OnEndCrouch);
-	PlayerInputComponent->BindAction("CrouchSwitch", IE_Released, this, &AMortalCryCharacter::OnCrouchSwitch);
+	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AMortalCryCharacter::Crouch);
+	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &AMortalCryCharacter::UnCrouch);
+	PlayerInputComponent->BindAction("CrouchSwitch", IE_Released, this, &AMortalCryCharacter::SwitchCrouch);
 
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMortalCryCharacter::Interact);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AMortalCryCharacter::EndInteract);
 
-	PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AMortalCryCharacter::OnDropItem);
+	PlayerInputComponent->BindAction("DropItem", IE_Released, this, &AMortalCryCharacter::OnDropItem);
 
-	PlayerInputComponent->BindAction("SheathWeapon", IE_Pressed, this, &AMortalCryCharacter::OnSheathWeapon);
+	PlayerInputComponent->BindAction("SheathWeapon", IE_Released, this, &AMortalCryCharacter::OnSheathWeapon);
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMortalCryCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMortalCryCharacter::MoveRight);
@@ -144,39 +147,38 @@ void AMortalCryCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 	DOREPLIFETIME(AMortalCryCharacter, ActualWeapon);
 	DOREPLIFETIME(AMortalCryCharacter, Weapons);
 	
-	DOREPLIFETIME(AMortalCryCharacter, FullHealth);
 	DOREPLIFETIME(AMortalCryCharacter, Health);
 }
 
 void AMortalCryCharacter::PickUp_Implementation(AActor* Item)
 {
-	if ( HasAuthority() )
-	{
-		OnPickUp.Broadcast(Item);
-	}
+	OnPickUp.Broadcast(Item);
 }
 
-void AMortalCryCharacter::OnPickUpWeapon_Implementation(AActor* Item)
-{	
-	if ( Item && Item->Implements<UWeapon>() )
-	{
-		const FName Holster = GetSocketFor(Item);
+void AMortalCryCharacter::OnPickUpWeapon(AActor* Item)
+{
+	if ( Weapons.Contains(Item) ) { return; }
+	if ( !Item || !Item->Implements<UWeapon>() ) { return; }
+	
+	const FName Holster = GetSocketFor(Item);
+	if (Holster == NAME_None) { return;	}
 
-		if (Holster != NAME_None)
-		{
-			IInteractive::Execute_Interact(Item, this);
-	
-			Weapons.Add(Item);
-	
-			if ( !ActualWeapon )
-			{
-				Draw(Item);
-				return;
-			}
-	
-			Sheath(Item, Holster);
-		}
+	OnPickUpWeaponMulticast(Item);
+	Item->SetReplicateMovement(false);
+	Weapons.AddUnique(Item);
+
+	if ( !ActualWeapon )
+	{
+		SetActualWeapon(Item);
+		return;
 	}
+	
+	Sheath(Item, Holster);
+}
+
+void AMortalCryCharacter::OnPickUpWeaponMulticast_Implementation(AActor* Item)
+{
+	IInteractive::Execute_Interact(Item, this);
 }
 
 void AMortalCryCharacter::OnPickUpItem(AActor* Item)
@@ -219,7 +221,7 @@ float AMortalCryCharacter::PlayAnimMontage(UAnimMontage* AnimMontage, float InPl
 	return Super::PlayAnimMontage(AnimMontage, InPlayRate, StartSectionName);
 }
 
-void AMortalCryCharacter::OnAttack()
+void AMortalCryCharacter::Attack()
 {
 	if ( ActualWeapon )
 	{
@@ -227,15 +229,15 @@ void AMortalCryCharacter::OnAttack()
 	}
 }
 
-void AMortalCryCharacter::OnEndAttack()
+void AMortalCryCharacter::StopAttacking()
 {
 	if ( ActualWeapon )
 	{
-		IWeapon::Execute_EndAttack(ActualWeapon);
+		IWeapon::Execute_StopAttacking(ActualWeapon);
 	}
 }
 
-void AMortalCryCharacter::OnAlterAttack()
+void AMortalCryCharacter::AlterAttack()
 {
 	if ( ActualWeapon )
 	{
@@ -243,15 +245,15 @@ void AMortalCryCharacter::OnAlterAttack()
 	}
 }
 
-void AMortalCryCharacter::OnEndAlterAttack()
+void AMortalCryCharacter::StopAlterAttack()
 {
 	if ( ActualWeapon )
 	{
-		IWeapon::Execute_EndAlterAttack(ActualWeapon);
+		IWeapon::Execute_StopAlterAttack(ActualWeapon);
 	}
 }
 
-void AMortalCryCharacter::OnAction()
+void AMortalCryCharacter::Action()
 {
 	if ( ActualWeapon )
 	{
@@ -259,15 +261,15 @@ void AMortalCryCharacter::OnAction()
 	}
 }
 
-void AMortalCryCharacter::OnEndAction()
+void AMortalCryCharacter::StopAction()
 {
 	if ( ActualWeapon )
 	{
-		IWeapon::Execute_EndAction(ActualWeapon);
+		IWeapon::Execute_StopAction(ActualWeapon);
 	}
 }
 
-void AMortalCryCharacter::OnAlterAction()
+void AMortalCryCharacter::AlterAction()
 {
 	if ( ActualWeapon )
 	{
@@ -275,11 +277,11 @@ void AMortalCryCharacter::OnAlterAction()
 	}
 }
 
-void AMortalCryCharacter::OnEndAlterAction()
+void AMortalCryCharacter::StopAlterAction()
 {
 	if ( ActualWeapon )
 	{
-		IWeapon::Execute_EndAlterAction(ActualWeapon);
+		IWeapon::Execute_StopAlterAction(ActualWeapon);
 	}
 }
 
@@ -294,16 +296,19 @@ bool AMortalCryCharacter::ServerInteract_Validate(AActor* InInteractiveActor)
 
 void AMortalCryCharacter::ServerInteract_Implementation(AActor* InInteractiveActor)
 {
-	if ( InInteractiveActor )
+	if ( HasAuthority() )
 	{
-		if ( InInteractiveActor->Implements<UCollectable>() )
+		if ( InInteractiveActor )
 		{
-			PickUp(InInteractiveActor);
-			return;
-		}
+			if ( InInteractiveActor->Implements<UCollectable>() )
+			{
+				PickUp(InInteractiveActor);
+				return;
+			}
 
-		ActualInteractiveActor = InInteractiveActor;
-		IInteractive::Execute_Interact(ActualInteractiveActor, this);
+			ActualInteractiveActor = InInteractiveActor;
+			IInteractive::Execute_Interact(ActualInteractiveActor, this);
+		}
 	}
 }
 
@@ -315,23 +320,18 @@ void AMortalCryCharacter::Interact_Implementation()
 	}
 }
 
-void AMortalCryCharacter::ServerEndInteract_Implementation()
+void AMortalCryCharacter::ServerStopInteract_Implementation()
 {
 	if ( ActualInteractiveActor )
 	{
-		IInteractive::Execute_EndInteract(ActualInteractiveActor);
+		IInteractive::Execute_StopInteracting(ActualInteractiveActor);
 		ActualInteractiveActor = nullptr;
 	}
 }
 
 void AMortalCryCharacter::EndInteract_Implementation()
 {
-	ServerEndInteract();
-}
-
-void AMortalCryCharacter::SetActualWeapon(AActor* NewWeapon)
-{	
-	ActualWeapon = NewWeapon;
+	ServerStopInteract();
 }
 
 void AMortalCryCharacter::NextWeapon()
@@ -339,7 +339,7 @@ void AMortalCryCharacter::NextWeapon()
 	if (Weapons.Num() != 0)
 	{
 		const int32 Index = Weapons.Find(ActualWeapon) + 1;
-		Draw(Weapons[Index % Weapons.Num()]);
+		SetActualWeapon(Weapons[Index % Weapons.Num()]);
 	}
 }
 
@@ -348,34 +348,30 @@ void AMortalCryCharacter::PreviousWeapon()
 	if (Weapons.Num() != 0)
 	{
 		const int32 Index = Weapons.Find(ActualWeapon) + Weapons.Num() - 1;
-		Draw(Weapons[Index % Weapons.Num()]);
+		SetActualWeapon(Weapons[Index % Weapons.Num()]);
 	}
 }
 
-void AMortalCryCharacter::OnSheathWeapon()
+void AMortalCryCharacter::SetActualWeapon_Implementation(AActor* NewWeapon)
 {
-	Sheath(ActualWeapon);
-}
-
-void AMortalCryCharacter::OnDropItem()
-{
-	if ( ActualWeapon )
+	if ( NewWeapon == ActualWeapon )
 	{
-		Weapons.Remove(ActualWeapon);
-		IInteractive::Execute_EndInteract(ActualWeapon);
-		ActualWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-		SetActualWeapon(nullptr);
+		return;
 	}
+	
+	AActor* OldActualWeapon = ActualWeapon;
+	
+	ActualWeapon = nullptr;
+	Sheath(OldActualWeapon);
+	
+	ActualWeapon = NewWeapon;
+	Draw(ActualWeapon);
 }
 
 void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 {
 	if ( Weapon && Weapon->Implements<UWeapon>() )
-	{
-		Sheath(ActualWeapon);
-
-		SetActualWeapon(Weapon);
-		
+	{		
 		IWeapon::Execute_Draw(Weapon);
 		Weapon->AttachToActor(this,
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
@@ -387,11 +383,6 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName
 {
 	if ( Weapon && Weapon->Implements<UWeapon>() )
 	{
-		if ( Weapon == ActualWeapon )
-		{
-			SetActualWeapon(nullptr);
-		}
-
 		if (SocketName == NAME_None)
 		{
 			SocketName = GetSocketFor(Weapon);
@@ -401,11 +392,28 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName
 		{
 			return;
 		}
-		
+
 		IWeapon::Execute_Sheath(Weapon);
 		Weapon->AttachToActor(this,
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 			SocketName);
+	}
+}
+
+void AMortalCryCharacter::OnSheathWeapon()
+{
+	SetActualWeapon(nullptr);
+}
+
+void AMortalCryCharacter::OnDropItem()
+{
+	if ( ActualWeapon )
+	{
+		AActor* OldWeapon = ActualWeapon; 
+		SetActualWeapon(nullptr);
+		Weapons.Remove(OldWeapon);
+		OldWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		IInteractive::Execute_StopInteracting(OldWeapon);
 	}
 }
 
@@ -477,41 +485,34 @@ void AMortalCryCharacter::LookUpAtRate(float Rate)
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
-void AMortalCryCharacter::OnCrouch()
+void AMortalCryCharacter::Crouch()
 {
-	Crouch();
+	Super::Crouch();
 }
 
-void AMortalCryCharacter::OnEndCrouch()
+void AMortalCryCharacter::UnCrouch()
 {
-	UnCrouch();
+	Super::UnCrouch();
 }
 
-void AMortalCryCharacter::OnCrouchSwitch()
+void AMortalCryCharacter::SwitchCrouch()
 {
-	if ( !bIsCrouched )
-	{
-		OnCrouch();
-	}
-	else
-	{
-		OnEndCrouch();
-	}
+	bIsCrouched ? Super::UnCrouch() : Super::Crouch(); 
 }
 
-float AMortalCryCharacter::GetHealth()
+float AMortalCryCharacter::GetHealth() const
 {
 	return Health / FullHealth;
 }
 
-FText AMortalCryCharacter::GetHealthText()
+FText AMortalCryCharacter::GetHealthText() const
 {
 	const int32 HP = FMath::RoundHalfFromZero(GetHealth() * 100.f);
 	const FString HPString = FString::FromInt(HP) + FString(TEXT("%"));
 	return FText::FromString(HPString);
 }
 
-void AMortalCryCharacter::UpdateHealth(float HealthChange)
+void AMortalCryCharacter::UpdateHealth_Implementation(float HealthChange)
 {
 	Health += HealthChange;
 	Health = FMath::Clamp(Health, 0.f, FullHealth);

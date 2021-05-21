@@ -68,7 +68,7 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	UPROPERTY(BlueprintReadWrite, Category = Interaction, meta = (AllowPrivateAccess = "true", MustImplement = "Interactive"))
 	AActor* ActualInteractiveActor;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health, meta = (AllowPrivateAccess = "true"))
 	float FullHealth;
 	
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Replicated, Category = Health, meta = (AllowPrivateAccess = "true"))
@@ -102,40 +102,40 @@ public:
 	AActor* InteractTrace();
 
 	UFUNCTION(BlueprintPure, Category = Health)
-	float GetHealth();
+	float GetHealth() const;
 
 	UFUNCTION(BlueprintPure, Category = Health)
-	FText GetHealthText();
+	FText GetHealthText() const;
 
-	UFUNCTION(BlueprintCallable, Category = Health)
+	UFUNCTION(BlueprintCallable, Server, Reliable, Category = Health)
 	void UpdateHealth(float HealthChange);
 	
 	virtual float PlayAnimMontage(UAnimMontage* AnimMontage, float InPlayRate = 1.f, FName StartSectionName = NAME_None) override;
 
 protected:
 	UFUNCTION(BlueprintCallable)
-	void OnAttack();
+	void Attack();
 	
 	UFUNCTION(BlueprintCallable)
-    void OnEndAttack();
+    void StopAttacking();
 	
 	UFUNCTION(BlueprintCallable)
-	void OnAlterAttack();
+	void AlterAttack();
 	
 	UFUNCTION(BlueprintCallable)
-    void OnEndAlterAttack();
+    void StopAlterAttack();
 	
 	UFUNCTION(BlueprintCallable)
-	void OnAction();
+	void Action();
 	
 	UFUNCTION(BlueprintCallable)
-    void OnEndAction();
+    void StopAction();
 	
 	UFUNCTION(BlueprintCallable)
-	void OnAlterAction();
+	void AlterAction();
 	
 	UFUNCTION(BlueprintCallable)
-    void OnEndAlterAction();
+    void StopAlterAction();
 
 	UFUNCTION(BlueprintCallable)
 	void NextWeapon();
@@ -149,18 +149,17 @@ protected:
 	UFUNCTION()
 	void OnDropItem();
 	
-	UFUNCTION(BlueprintCallable, Server, Reliable)
-	void Draw(AActor* Weapon);
-	
-	UFUNCTION(BlueprintCallable, Server, Reliable)
-	void Sheath(AActor* Weapon, FName SocketName = NAME_None);
-	
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION()
 	void OnPickUpWeapon(AActor* Item);
 	
 	UFUNCTION()
 	void OnPickUpItem(AActor* Item);
 
+private:
+	UFUNCTION(NetMulticast, Reliable)
+	void OnPickUpWeaponMulticast(AActor* Item);
+
+protected:
 	UFUNCTION()
 	FName GetSocketFor(AActor* Weapon);
 
@@ -169,7 +168,7 @@ private:
 	void ServerInteract(AActor* InInteractiveActor);
 	
 	UFUNCTION(Server, Reliable)
-	void ServerEndInteract();
+	void ServerStopInteract();
 
 protected:	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
@@ -197,15 +196,22 @@ protected:
 	void LookUpAtRate(float Rate);
 
 public:
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void SetActualWeapon(AActor* NewWeapon);
 
+protected:
+	UFUNCTION(NetMulticast, Reliable)
+	void Draw(AActor* Weapon);
+	
+	UFUNCTION(NetMulticast, Reliable)
+	void Sheath(AActor* Weapon, FName SocketName = NAME_None);
+
 public:
-	void OnCrouch();
-	void OnEndCrouch();
+	void Crouch();
+	void UnCrouch();
 	
 	UFUNCTION(BlueprintCallable)
-	void OnCrouchSwitch();
+	void SwitchCrouch();
 	
 protected:
 	virtual void BeginPlay() override;
