@@ -59,33 +59,7 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ShootFromCover.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ShootFromCover.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patroling/PatrolPath.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patroling/PatrolPath.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Arms/FirstPerson_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Arms/FirstPerson_AnimBP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanBB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanBB.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanBehaviorTree.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_FPGun.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_FPGun.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Collectable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Collectable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Interactive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Interactive.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.h" afterDir="false" />
-    </list>
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Neural AI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42552,6 +42526,7 @@
       <workItem from="1621497246922" duration="8641000" />
       <workItem from="1621516369005" duration="14088000" />
       <workItem from="1621538096951" duration="1775000" />
+      <workItem from="1621583634462" duration="703000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42679,7 +42654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621438252952</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Neural AI">
+      <created>1621583719339</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1621583719339</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42725,7 +42707,8 @@
     <MESSAGE value="Update" />
     <MESSAGE value="Delete Plugins" />
     <MESSAGE value="Temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Temp" />
+    <MESSAGE value="Neural AI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Neural AI" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
