@@ -4,6 +4,7 @@
 #include "InventoryComponent.h"
 
 #include "Collectable.h"
+#include "Usable.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -48,7 +49,7 @@ void UInventoryComponent::Collect(AActor* Item)
 
 bool UInventoryComponent::CanCollect(AActor* Item) const
 {
-	if (!Item || !Item->Implements<UCollectable>())
+	if (!Item || !Item->Implements<UUsable>())
 	{
 		return false;
 	}
