@@ -15,10 +15,10 @@ AWeaponBase::AWeaponBase(const FObjectInitializer& ObjectInitializer) : Super(Ob
 
 void AWeaponBase::Sheath_Implementation()
 {
-	Execute_EndAttack(this);
-	Execute_EndAttack(this);
-	Execute_EndAlterAttack(this);
-	Execute_EndAlterAction(this);
+	Execute_StopAttacking(this);
+	Execute_StopAction(this);
+	Execute_StopAlterAttack(this);
+	Execute_StopAlterAction(this);
 }
 
 void AWeaponBase::Interact_Implementation(AActor* InInstigator)
@@ -28,7 +28,7 @@ void AWeaponBase::Interact_Implementation(AActor* InInstigator)
 	GetSkeletalMeshComponent()->SetCollisionProfileName("NoCollision");
 }
 
-void AWeaponBase::EndInteract_Implementation()
+void AWeaponBase::StopInteracting_Implementation()
 {
 	SetOwner(nullptr);
 	GetSkeletalMeshComponent()->SetSimulatePhysics(true);
