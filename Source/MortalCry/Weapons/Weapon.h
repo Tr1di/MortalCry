@@ -57,4 +57,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FName GetType() const;
+	
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	USkeletalMeshComponent* GetPlayerSpecifiedMesh(bool bSpecified = false) const;
 };
