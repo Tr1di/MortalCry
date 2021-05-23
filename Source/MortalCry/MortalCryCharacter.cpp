@@ -8,6 +8,7 @@
 #include "MortalCryPlayerController.h"
 #include "MortalCryProjectile.h"
 #include "MotionControllerComponent.h"
+#include "Usable.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -66,7 +67,9 @@ void AMortalCryCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpWeapon);
-	//OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpItem);
+	OnPickUp.AddDynamic(this, &AMortalCryCharacter::OnPickUpItem);
+	
+	OnDrop.AddDynamic(this, &AMortalCryCharacter::OnDropWeapon);
 	
 	if( IGenericTeamAgentInterface* Agent = Cast<IGenericTeamAgentInterface>(GetController()) )
 	{
@@ -182,7 +185,7 @@ void AMortalCryCharacter::OnPickUpWeapon(AActor* Item)
 void AMortalCryCharacter::OnPickUpItem(AActor* Item)
 {
 	if ( !Item ) { return; }
-	if ( Item->Implements<UWeapon>() ) { return; }
+	if ( !Item->Implements<UCollectable>() ) { return; }
 
 	Inventory->Collect(Item);
 }
@@ -376,7 +379,7 @@ void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 		IWeapon::Execute_Draw(Weapon);
 		Weapon->GetRootComponent()->AttachToComponent(GetDefaultAttachComponent(),
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
-			/*IsPlayerControlled() && IsLocallyControlled() ? TEXT("GripPointFP") :*/ TEXT("GripPoint"));
+			IsPlayerControlled() && IsLocallyControlled() ? TEXT("GripPointFP") : TEXT("GripPoint"));
 	}
 }
 
