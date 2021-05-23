@@ -77,17 +77,23 @@ void AMortalCryCharacter::BeginPlay()
 		Agent->SetGenericTeamId(static_cast<uint8>(Team));
 	}
 
-	for ( AActor* Weapon : Weapons )
+	if ( !HasAuthority() )
 	{
-		IInteractive::Execute_Interact(Weapon, this);
+		for ( AActor* Weapon : Weapons )
+		{
+			if (Weapon)
+			{
+				IInteractive::Execute_Interact(Weapon, this);
 
-		// if (Weapon == ActualWeapon)
-		// {
-		// 	Draw(ActualWeapon);
-		// 	continue;
-		// }
-		//
-		// Sheath(Weapon);
+				if ( Weapon == ActualWeapon )
+				{
+					Draw(ActualWeapon);
+					continue;
+				}
+				
+				Sheath(Weapon, Weapon->GetAttachParentSocketName());
+			}
+		}
 	}
 }
 
@@ -163,6 +169,7 @@ void AMortalCryCharacter::PickUp_Implementation(AActor* Item)
 
 void AMortalCryCharacter::OnPickUpWeapon(AActor* Item)
 {
+	if ( !HasAuthority() ) { return; }
 	if ( Weapons.Contains(Item) ) { return; }
 	if ( !Item || !Item->Implements<UWeapon>() ) { return; }
 	
@@ -375,11 +382,18 @@ void AMortalCryCharacter::SetActualWeapon_Implementation(AActor* NewWeapon)
 void AMortalCryCharacter::Draw_Implementation(AActor* Weapon)
 {
 	if ( Weapon && Weapon->Implements<UWeapon>() )
-	{		
+	{
 		IWeapon::Execute_Draw(Weapon);
-		Weapon->GetRootComponent()->AttachToComponent(GetDefaultAttachComponent(),
+		
+		USkeletalMeshComponent* FP = IWeapon::Execute_GetPlayerSpecifiedMesh(Weapon, true);
+		USkeletalMeshComponent* TP = IWeapon::Execute_GetPlayerSpecifiedMesh(Weapon, false);
+		
+		FP->AttachToComponent(GetMeshFP(),
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
-			IsPlayerControlled() && IsLocallyControlled() ? TEXT("GripPointFP") : TEXT("GripPoint"));
+			TEXT("GripPointFP"));
+		TP->AttachToComponent(GetMesh(),
+			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
+			TEXT("GripPoint"));
 	}
 }
 
@@ -398,7 +412,14 @@ void AMortalCryCharacter::Sheath_Implementation(AActor* Weapon, FName SocketName
 		}
 
 		IWeapon::Execute_Sheath(Weapon);
-		Weapon->GetRootComponent()->AttachToComponent(GetDefaultAttachComponent(),
+		
+		USkeletalMeshComponent* FP = IWeapon::Execute_GetPlayerSpecifiedMesh(Weapon, true);
+		USkeletalMeshComponent* TP = IWeapon::Execute_GetPlayerSpecifiedMesh(Weapon, false);
+		
+		FP->AttachToComponent(GetMeshFP(),
+			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
+			SocketName);
+		TP->AttachToComponent(GetMesh(),
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 			SocketName);
 	}
