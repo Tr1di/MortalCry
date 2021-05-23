@@ -460,7 +460,7 @@ void AMortalCryCharacter::OnDropWeapon(AActor* Item)
 FName AMortalCryCharacter::GetSocketFor(AActor* Weapon)
 {
 	if ( !Weapon || !Weapon->Implements<UWeapon>())
-	{
+	{	
 		return NAME_None;
 	}
 	

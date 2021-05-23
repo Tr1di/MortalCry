@@ -99,6 +99,9 @@ public:
 	UFUNCTION(BlueprintPure, Category = Health)
 	FText GetHealthText() const;
 
+	UFUNCTION(BlueprintPure, Category = Health)
+	bool IsAlive() const { return Health > 0.f; }
+	
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = Health)
 	void UpdateHealth(float HealthChange);
 
