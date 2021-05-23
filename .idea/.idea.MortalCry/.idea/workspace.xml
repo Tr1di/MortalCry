@@ -59,16 +59,10 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Map">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42542,7 +42536,8 @@
       <workItem from="1621627747461" duration="3745000" />
       <workItem from="1621671218763" duration="2010000" />
       <workItem from="1621698412148" duration="8100000" />
-      <workItem from="1621727182548" duration="632000" />
+      <workItem from="1621727182548" duration="1338000" />
+      <workItem from="1621764154472" duration="6826000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42698,7 +42693,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621698478959</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Separate Meshes">
+      <created>1621728479882</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1621728479882</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Light">
+      <created>1621767354131</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1621767354131</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Map">
+      <created>1621770663775</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1621770663775</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42738,7 +42754,6 @@
     <MESSAGE value="Remove leftover files &#10;Add Patrol_BT" />
     <MESSAGE value="Move Team Files To Teams Directory" />
     <MESSAGE value="Setup Hud" />
-    <MESSAGE value="Map" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Da" />
     <MESSAGE value="Update" />
@@ -42748,7 +42763,10 @@
     <MESSAGE value="HZ" />
     <MESSAGE value="Usable" />
     <MESSAGE value="Force Feedback" />
-    <option name="LAST_COMMIT_MESSAGE" value="Force Feedback" />
+    <MESSAGE value="Separate Meshes" />
+    <MESSAGE value="Light" />
+    <MESSAGE value="Map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
