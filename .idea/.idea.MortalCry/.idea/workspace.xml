@@ -59,9 +59,11 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Light">
       <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TestCube.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TestCube.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
     </list>
@@ -42538,7 +42540,7 @@
       <workItem from="1621671218763" duration="2010000" />
       <workItem from="1621698412148" duration="8100000" />
       <workItem from="1621727182548" duration="1338000" />
-      <workItem from="1621764154472" duration="1937000" />
+      <workItem from="1621764154472" duration="2713000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42701,7 +42703,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621728479882</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Light">
+      <created>1621767354131</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1621767354131</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42752,7 +42761,8 @@
     <MESSAGE value="Usable" />
     <MESSAGE value="Force Feedback" />
     <MESSAGE value="Separate Meshes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Separate Meshes" />
+    <MESSAGE value="Light" />
+    <option name="LAST_COMMIT_MESSAGE" value="Light" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
