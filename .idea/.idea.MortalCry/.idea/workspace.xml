@@ -59,7 +59,17 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Fix" />
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +78,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="UI" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,7 +119,6 @@
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/SkeletalMeshComponentPhysics.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Components/SkeletalMeshComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/UMG/Public/Blueprint/UserWidget.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UE4Editor/Inc/MortalCry/Weapon.generated.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Core/Public/UObject/ScriptDelegates.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -130,6 +139,7 @@
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/LevelActor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/MortalCryGameMode.h" root0="FORCE_HIGHLIGHTING" />
@@ -141,6 +151,7 @@
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Engine/World.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/HUD.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectMacros.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MortalCry/Informative.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/Controller.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Public/CollisionQueryParams.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/PlayerState.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -149,11 +160,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Source/MortalCry/Interactive.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged/Ranged.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged/Ranged.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryProjectile.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Collectable.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Possessive.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Possessive.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/SupportCharacter.h" />
@@ -187,17 +193,23 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryGameMode.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Teams/TeamSettings.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Informative.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/NeuralNetwork/NeuralNetworkController.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/NeuralNetwork/NeuralNetworkController.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Teams/Team.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" />
       <option value="$PROJECT_DIR$/Config/DefaultInput.ini" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Interactive.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Collectable.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Usable.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
     </changedPaths>
   </component>
@@ -42509,6 +42521,28 @@
       <workItem from="1620820303052" duration="7481000" />
       <workItem from="1620850357199" duration="5175000" />
       <workItem from="1620891519727" duration="4636000" />
+      <workItem from="1620949294435" duration="93000" />
+      <workItem from="1620983384811" duration="170000" />
+      <workItem from="1621022336603" duration="647000" />
+      <workItem from="1621109903309" duration="2276000" />
+      <workItem from="1621169881820" duration="151000" />
+      <workItem from="1621170260016" duration="157000" />
+      <workItem from="1621181394398" duration="1562000" />
+      <workItem from="1621251786877" duration="1847000" />
+      <workItem from="1621262240284" duration="4000" />
+      <workItem from="1621262310284" duration="3820000" />
+      <workItem from="1621282001734" duration="2466000" />
+      <workItem from="1621438215498" duration="678000" />
+      <workItem from="1621497246922" duration="8641000" />
+      <workItem from="1621516369005" duration="14088000" />
+      <workItem from="1621538096951" duration="1775000" />
+      <workItem from="1621583634462" duration="966000" />
+      <workItem from="1621593071992" duration="1466000" />
+      <workItem from="1621600612366" duration="18891000" />
+      <workItem from="1621627747461" duration="3745000" />
+      <workItem from="1621671218763" duration="2010000" />
+      <workItem from="1621698412148" duration="8100000" />
+      <workItem from="1621727182548" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42601,7 +42635,70 @@
       <option name="project" value="LOCAL" />
       <updated>1620924845955</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix">
+      <created>1620926091798</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1620926091798</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Da">
+      <created>1620927124861</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1620927124861</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update">
+      <created>1620983465250</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620983465250</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Delete Plugins">
+      <created>1621282790310</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1621282790310</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Temp">
+      <created>1621438252952</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1621438252952</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Neural AI">
+      <created>1621583719339</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1621583719339</updated>
+    </task>
+    <task id="LOCAL-00020" summary="HZ">
+      <created>1621588882959</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1621588882960</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Usable">
+      <created>1621633140824</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1621633140824</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Force Feedback">
+      <created>1621698478959</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1621698478959</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42643,7 +42740,15 @@
     <MESSAGE value="Setup Hud" />
     <MESSAGE value="Map" />
     <MESSAGE value="Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
+    <MESSAGE value="Da" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="Delete Plugins" />
+    <MESSAGE value="Temp" />
+    <MESSAGE value="Neural AI" />
+    <MESSAGE value="HZ" />
+    <MESSAGE value="Usable" />
+    <MESSAGE value="Force Feedback" />
+    <option name="LAST_COMMIT_MESSAGE" value="Force Feedback" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

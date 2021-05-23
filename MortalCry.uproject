@@ -98,10 +98,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "SimpleUGC",
-			"Enabled": false
-		},
-		{
 			"Name": "DirGravity",
 			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/1e8883ab1e2f44f0984006d4ab67acd4"
@@ -136,6 +132,15 @@
 		{
 			"Name": "SunPosition",
 			"Enabled": true
+		},
+		{
+			"Name": "WindowTest",
+			"Enabled": false
+		},
+		{
+			"Name": "AutoSettings",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/fcc480bac77b4373bc6c68f0ae4f9847"
 		}
 	],
 	"AdditionalPluginDirectories": [
