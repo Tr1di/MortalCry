@@ -59,7 +59,11 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Da" />
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="Aga">
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42535,7 +42539,7 @@
       <workItem from="1621727182548" duration="1338000" />
       <workItem from="1621764154472" duration="9711000" />
       <workItem from="1621786979601" duration="5863000" />
-      <workItem from="1621808115523" duration="3103000" />
+      <workItem from="1621808115523" duration="3807000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42747,7 +42751,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621814055389</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Aga">
+      <created>1621814077934</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1621814077934</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42800,7 +42811,8 @@
     <MESSAGE value="Fix" />
     <MESSAGE value="Temp" />
     <MESSAGE value="Da" />
-    <option name="LAST_COMMIT_MESSAGE" value="Da" />
+    <MESSAGE value="Aga" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aga" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
