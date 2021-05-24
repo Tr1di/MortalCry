@@ -59,13 +59,7 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MortalCry.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/MortalCry.uproject" afterDir="false" />
-    </list>
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,8 +198,8 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/Usable.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
     </changedPaths>
   </component>
@@ -42540,7 +42534,9 @@
       <workItem from="1621698412148" duration="8100000" />
       <workItem from="1621727182548" duration="1338000" />
       <workItem from="1621764154472" duration="9711000" />
-      <workItem from="1621786979601" duration="599000" />
+      <workItem from="1621786979601" duration="5863000" />
+      <workItem from="1621808115523" duration="4196000" />
+      <workItem from="1621821378051" duration="762000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42724,7 +42720,56 @@
       <option name="project" value="LOCAL" />
       <updated>1621783886245</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fix Patrol">
+      <created>1621791395190</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1621791395190</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Fix">
+      <created>1621793746148</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1621793746148</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Temp">
+      <created>1621800496816</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1621800496816</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Da">
+      <created>1621814055389</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1621814055389</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Aga">
+      <created>1621814077934</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1621814077934</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Main menu">
+      <created>1621817703738</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1621817703738</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Finish">
+      <created>1621821519405</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1621821519405</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42764,11 +42809,8 @@
     <MESSAGE value="Remove leftover files &#10;Add Patrol_BT" />
     <MESSAGE value="Move Team Files To Teams Directory" />
     <MESSAGE value="Setup Hud" />
-    <MESSAGE value="Fix" />
-    <MESSAGE value="Da" />
     <MESSAGE value="Update" />
     <MESSAGE value="Delete Plugins" />
-    <MESSAGE value="Temp" />
     <MESSAGE value="Neural AI" />
     <MESSAGE value="HZ" />
     <MESSAGE value="Usable" />
@@ -42776,7 +42818,14 @@
     <MESSAGE value="Separate Meshes" />
     <MESSAGE value="Light" />
     <MESSAGE value="Map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Map" />
+    <MESSAGE value="Fix Patrol" />
+    <MESSAGE value="Fix" />
+    <MESSAGE value="Temp" />
+    <MESSAGE value="Da" />
+    <MESSAGE value="Aga" />
+    <MESSAGE value="Main menu" />
+    <MESSAGE value="Finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

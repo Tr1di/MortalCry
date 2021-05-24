@@ -438,7 +438,10 @@ void AMortalCryCharacter::DropActualWeapon()
 void AMortalCryCharacter::Drop_Implementation(AActor* Item)
 {
 	OnDrop.Broadcast(Item);
-	IInteractive::Execute_StopInteracting(Item);
+	if ( Item && Item->Implements<UWeapon>() )
+	{
+		IInteractive::Execute_StopInteracting(Item);
+	}
 }
 
 void AMortalCryCharacter::OnDropWeapon(AActor* Item)
@@ -446,13 +449,13 @@ void AMortalCryCharacter::OnDropWeapon(AActor* Item)
 	if (Item && Item->Implements<UWeapon>())
 	{
 		Weapons.Remove(Item);
-		
+
 		if (ActualWeapon == Item)
 		{
 			SetActualWeapon(nullptr);
 			NextWeapon();
 		}
-		
+
 		Item->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 	}
 }
@@ -460,7 +463,7 @@ void AMortalCryCharacter::OnDropWeapon(AActor* Item)
 FName AMortalCryCharacter::GetSocketFor(AActor* Weapon)
 {
 	if ( !Weapon || !Weapon->Implements<UWeapon>())
-	{
+	{	
 		return NAME_None;
 	}
 	
