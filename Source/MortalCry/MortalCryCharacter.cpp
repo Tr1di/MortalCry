@@ -438,7 +438,10 @@ void AMortalCryCharacter::DropActualWeapon()
 void AMortalCryCharacter::Drop_Implementation(AActor* Item)
 {
 	OnDrop.Broadcast(Item);
-	IInteractive::Execute_StopInteracting(Item);
+	if ( Item && Item->Implements<UWeapon>() )
+	{
+		IInteractive::Execute_StopInteracting(Item);
+	}
 }
 
 void AMortalCryCharacter::OnDropWeapon(AActor* Item)
