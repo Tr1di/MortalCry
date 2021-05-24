@@ -446,13 +446,13 @@ void AMortalCryCharacter::OnDropWeapon(AActor* Item)
 	if (Item && Item->Implements<UWeapon>())
 	{
 		Weapons.Remove(Item);
-		
+
 		if (ActualWeapon == Item)
 		{
 			SetActualWeapon(nullptr);
 			NextWeapon();
 		}
-		
+
 		Item->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 	}
 }

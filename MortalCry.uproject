@@ -141,6 +141,10 @@
 		{
 			"Name": "WindowTest",
 			"Enabled": false
+		},
+		{
+			"Name": "SimpleUGC",
+			"Enabled": false
 		}
 	],
 	"AdditionalPluginDirectories": [
