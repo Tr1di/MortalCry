@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "Components/ActorComponent.h"
 #include "InventoryComponent.generated.h"
 
@@ -34,6 +35,9 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "True"))
 	TMap<TSubclassOf<AActor>, int32> Items;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "True"))
+	AActor* EquippedItem;
 	
 protected:
 	// Called when the game starts
@@ -51,5 +55,6 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	FORCEINLINE AActor* GetEquippedItem() const { return EquippedItem; }
 		
 };

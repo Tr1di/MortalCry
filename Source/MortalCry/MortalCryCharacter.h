@@ -53,9 +53,6 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
-	UInventoryComponent* Inventory;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	TMap<FName, FHolsters> Holsters;
@@ -64,16 +61,13 @@ class AMortalCryCharacter : public ACharacter, public IGenericTeamAgentInterface
 	TArray<AActor*> Weapons;
 	
 	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Weapon, meta = (AllowPrivateAccess = "true", MustImplement = "Weapon"))
-	AActor* ActualWeapon;
-
-	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Weapon, meta = (AllowPrivateAccess = "true"))
-	AActor* ActualItem;
+	AActor* CurrentWeapon;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Team, meta = (AllowPrivateAccess = "true"))
 	TEnumAsByte<ETeam::Type> Team;
 
 public:
-	AMortalCryCharacter(const FObjectInitializer& ObjectInitializer);
+	explicit AMortalCryCharacter(const FObjectInitializer& ObjectInitializer);
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -97,14 +91,33 @@ public:
 	float GetHealth() const;
 
 	UFUNCTION(BlueprintPure, Category = Health)
-	FText GetHealthText() const;
-
-	UFUNCTION(BlueprintPure, Category = Health)
 	bool IsAlive() const { return Health > 0.f; }
 	
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = Health)
 	void UpdateHealth(float HealthChange);
 
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
+	UInventoryComponent* Inventory;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
+	float InventoryOpenDelay;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
+	bool bIsInventoryOpen;
+
+protected:
+	FTimerHandle InventoryTimer;
+	
+	UFUNCTION(BlueprintCallable, Category = Inventory)
+	void OpenInventory();
+
+public:
+	AActor* GetEquippedItem() const { return Inventory->GetEquippedItem(); }
+	
+	UFUNCTION(BlueprintPure, Category = Inventory)
+	bool IsInventoryOpen() const { return bIsInventoryOpen; }
+	
 	//////////
 	// Interact
 private:
@@ -196,6 +209,12 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void DropActualWeapon();
 
+	UFUNCTION(BlueprintCallable)
+	void BeginUse();
+
+	UFUNCTION(BlueprintCallable)
+	void Use();
+	
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
