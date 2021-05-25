@@ -24,5 +24,5 @@ class MORTALCRY_API IUsable
 public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void Use();
+	void Use(AActor* InInvestigator);
 };
