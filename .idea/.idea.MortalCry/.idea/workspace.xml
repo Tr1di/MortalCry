@@ -61,35 +61,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/HUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/InfoBlock.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/InfoBlock.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/MainMenu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/PauseMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/PauseMenu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/Settings.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/Settings.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FPS_Assault_Pack/Blueprints/Rifle/BP_Rifle_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FPS_Assault_Pack/Blueprints/Rifle/BP_Rifle_Character.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonProjectile.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Collectable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Collectable.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Collectable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Collectable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +172,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/NeuralAIController.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/NeuralAIController.h" />
       <option value="$PROJECT_DIR$/Config/DefaultEngine.ini" />
-      <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryGameMode.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/TeamSettings.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/TeamSettings.cpp" />
@@ -232,6 +202,7 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" />
+      <option value="$PROJECT_DIR$/.gitignore" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42573,6 +42544,7 @@
       <workItem from="1622028283153" duration="113000" />
       <workItem from="1622028449694" duration="549000" />
       <workItem from="1622029076162" duration="9796000" />
+      <workItem from="1622063199814" duration="571000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42819,7 +42791,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621958595124</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Almost Final">
+      <created>1622063434475</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1622063434475</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Final">
+      <created>1622063555286</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1622063555286</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42851,8 +42837,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="UGC" />
-    <MESSAGE value="D" />
     <MESSAGE value="Init" />
     <MESSAGE value="Complete Patrol" />
     <MESSAGE value="Fixes" />
@@ -42876,7 +42860,9 @@
     <MESSAGE value="Finish" />
     <MESSAGE value="Fix" />
     <MESSAGE value="New Map" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Map" />
+    <MESSAGE value="Almost Final" />
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
