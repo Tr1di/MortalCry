@@ -26,8 +26,6 @@ const UTeamSettings* UTeamSettings::Get()
 ETeamAttitude::Type UTeamSettings::GetAttitude(const FGenericTeamId Of, const FGenericTeamId Towards)
 {
 	auto& TeamAttitudes = Get()->TeamAttitudes;
-
-	UE_LOG(LogTemp, Warning, TEXT("Check attitude of %i to %i"), Of.GetId(), Towards.GetId());
 	
 	if ( TeamAttitudes.IsValidIndex(Of.GetId()) && TeamAttitudes.IsValidIndex(Towards.GetId()) )
 	{

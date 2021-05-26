@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "Components/ActorComponent.h"
 #include "InventoryComponent.generated.h"
 
@@ -10,13 +11,80 @@ USTRUCT(BlueprintType)
 struct FCollectedItem
 {
 	GENERATED_BODY()
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FBox2D Place;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<AActor> Item;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* Icon;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Name;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Description;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Amount;
+	
+	friend bool operator==(const FCollectedItem& Lhs, const FCollectedItem& RHS)
+	{
+		return Lhs.Item == RHS.Item;
+	}
+
+	friend bool operator!=(const FCollectedItem& Lhs, const FCollectedItem& RHS) { return !(Lhs == RHS); }
+
+	friend uint32 GetTypeHash(const FCollectedItem& CollectedItem)
+	{
+		return GetTypeHash(CollectedItem.Item)
+			+ GetTypeHash(CollectedItem.Icon)
+			+ GetTypeHash(CollectedItem.Name)
+			+ GetTypeHash(CollectedItem.Description);
+	}
+
+	friend FCollectedItem operator+(FCollectedItem& Lhs, FCollectedItem& RHS)
+	{
+		Lhs.Amount += RHS.Amount;
+		return Lhs;
+	}
+
+	friend FCollectedItem operator+=(FCollectedItem& Lhs, FCollectedItem& RHS)
+	{
+		return Lhs + RHS;
+	}
+
+	friend FCollectedItem operator+(FCollectedItem& Lhs, const int32 RHS)
+	{
+		Lhs.Amount += RHS;
+		return Lhs;
+	}
+
+	friend FCollectedItem operator+=(FCollectedItem& Lhs, const int32 RHS)
+	{
+		return Lhs + RHS;
+	}
+
+	friend FCollectedItem operator-(FCollectedItem& Lhs, FCollectedItem& RHS)
+	{
+		Lhs.Amount -= RHS.Amount;
+		return Lhs;
+	}
+
+	friend FCollectedItem operator-=(FCollectedItem& Lhs, FCollectedItem& RHS)
+	{
+		return Lhs - RHS;
+	}
+
+	friend FCollectedItem operator-(FCollectedItem& Lhs, const int32 RHS)
+	{
+		Lhs.Amount -= RHS;
+		return Lhs;
+	}
+
+	friend FCollectedItem operator-=(FCollectedItem& Lhs, const int32 RHS)
+	{
+		return Lhs - RHS;
+	}
 };
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -33,23 +101,38 @@ private:
 	int32 Size;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "True"))
-	TMap<TSubclassOf<AActor>, int32> Items;
+	int32 MaxItems;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "True"))
+	TArray<FCollectedItem> Items;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "True"))
+	AActor* EquippedItem;
 	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void Collect(AActor* Item);
+
+	UFUNCTION(BlueprintCallable)
+	int32 Get(TSubclassOf<AActor> ItemClass, int32 Amount);
+	
+	UFUNCTION(BlueprintCallable)
+	void Equip(int32 Index, bool IsValid);
+
+private:
+	void Collect(FCollectedItem Item);
+	
+	FCollectedItem GetItem(TSubclassOf<AActor> ItemClass) const;
 	
 protected:
 	UFUNCTION()
 	bool CanCollect(AActor* Item) const;
 	
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	FORCEINLINE AActor* GetEquippedItem() const { return EquippedItem; }
 		
 };

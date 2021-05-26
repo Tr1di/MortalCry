@@ -25,7 +25,7 @@ void AMortalCryHUD::TraceForInteractiveActors()
 {
 	if ( AMortalCryPlayerController* PC = Cast<AMortalCryPlayerController>(GetOwningPlayerController()) )
 	{
-		DrawTextFor(PC->Trace());
+		DrawTextFor(PC->Trace(UInformative::StaticClass()));
 	}
 }
 

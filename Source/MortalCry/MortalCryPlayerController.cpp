@@ -21,11 +21,11 @@ void AMortalCryPlayerController::SetupInputComponent()
 	Super::SetupInputComponent();
 }
 
-AActor* AMortalCryPlayerController::Trace()
+AActor* AMortalCryPlayerController::Trace(TSubclassOf<UInterface> SearchClass)
 {
 	if ( OnTrace.IsBound() )
 	{
-		return OnTrace.Execute();
+		return OnTrace.Execute(SearchClass);
 	}
 
 	return nullptr;
