@@ -17,3 +17,5 @@ Plugins/Developer
 /*.doc
 Content/MindMaker/build
 Content/MindMaker/dist
+*_BuiltData.uasset
+Mods
