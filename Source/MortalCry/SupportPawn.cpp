@@ -57,10 +57,10 @@ void ASupportPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 		GetController()->InputComponent->BindAction("PossessMain", IE_DoubleClick, this, &ASupportPawn::DoUnPossess);
 	}
 
-	if (AMortalCryPlayerController* MCController = GetController<AMortalCryPlayerController>())
-	{
-		MCController->OnTrace.BindDynamic(this, &ASupportPawn::Trace);
-	}
+	// if (AMortalCryPlayerController* MCController = GetController<AMortalCryPlayerController>())
+	// {
+	// 	MCController->OnTrace.BindDynamic(this, &ASupportPawn::Trace);
+	// }
 }
 
 void ASupportPawn::UnPossessed()

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 
 #include "GenericTeamAgentInterface.h"
+#include "Interactive.h"
 #include "InventoryComponent.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Character.h"
@@ -129,7 +130,7 @@ private:
 
 public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	AActor* InteractTrace();
+	AActor* InteractTrace(TSubclassOf<UInterface> SearchClass);
 
 	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void PickUp(AActor* Item);

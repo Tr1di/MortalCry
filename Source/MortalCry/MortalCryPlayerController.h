@@ -3,10 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "Informative.h"
 #include "GameFramework/PlayerController.h"
 #include "MortalCryPlayerController.generated.h"
 
-DECLARE_DYNAMIC_DELEGATE_RetVal(AActor*, FTraceSignature);
+DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam(AActor*, FTraceSignature, TSubclassOf<UInterface>, SearchClass);
 
 /**
  * 
@@ -22,7 +24,7 @@ public:
 	FTraceSignature OnTrace;
 	
 	UFUNCTION(BlueprintCallable)
-    AActor* Trace();
+    AActor* Trace(TSubclassOf<UInterface> SearchClass);
 	
 protected:
 	virtual void SetupInputComponent() override;

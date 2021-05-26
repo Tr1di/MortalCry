@@ -5,6 +5,7 @@
 
 #include "Collectable.h"
 #include "Interactive.h"
+#include "MortalCryMovementComponent.h"
 #include "MortalCryPlayerController.h"
 #include "MortalCryProjectile.h"
 #include "MotionControllerComponent.h"
@@ -27,7 +28,8 @@ DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 //////////////////////////////////////////////////////////////////////////
 // AMortalCryCharacter
 
-AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<UMortalCryMovementComponent>(CharacterMovementComponentName))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
@@ -60,6 +62,8 @@ AMortalCryCharacter::AMortalCryCharacter(const FObjectInitializer& ObjectInitial
 	InteractLength = 150.f;
 	
 	FullHealth = Health = 1000.f;
+	
+	InventoryOpenDelay = 0.2f;
 }
 
 void AMortalCryCharacter::BeginPlay()
@@ -130,8 +134,8 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMortalCryCharacter::Interact);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AMortalCryCharacter::EndInteract);
 
-	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMortalCryCharacter::Interact);
-	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AMortalCryCharacter::EndInteract);
+	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &AMortalCryCharacter::BeginUse);
+	PlayerInputComponent->BindAction("Use", IE_Released, this, &AMortalCryCharacter::Use);
 
 	PlayerInputComponent->BindAction("DropItem", IE_Released, this, &AMortalCryCharacter::DropActualWeapon);
 
@@ -194,12 +198,13 @@ void AMortalCryCharacter::OnPickUpWeapon(AActor* Item)
 void AMortalCryCharacter::OnPickUpItem(AActor* Item)
 {
 	if ( !Item ) { return; }
+	if ( Item->Implements<UWeapon>() ) { return; }
 	if ( !Item->Implements<UCollectable>() ) { return; }
 
 	Inventory->Collect(Item);
 }
 
-AActor* AMortalCryCharacter::InteractTrace_Implementation()
+AActor* AMortalCryCharacter::InteractTrace_Implementation(TSubclassOf<UInterface> SearchClass)
 {
 	FHitResult OutHit;
 	
@@ -219,7 +224,7 @@ AActor* AMortalCryCharacter::InteractTrace_Implementation()
 	{
 		if (OutHit.bBlockingHit && OutHit.GetActor())
 		{
-			if ( OutHit.GetActor()->Implements<UInteractive>() )
+			if ( OutHit.GetActor()->GetClass()->ImplementsInterface(SearchClass) )
 			{
 				return OutHit.GetActor();
 			}
@@ -327,7 +332,7 @@ void AMortalCryCharacter::ServerInteract_Implementation(AActor* InInteractiveAct
 
 void AMortalCryCharacter::Interact_Implementation()
 {
-	if ( AActor* Interactive = InteractTrace() )
+	if ( AActor* Interactive = InteractTrace(UInteractive::StaticClass()) )
 	{
 		ServerInteract(Interactive);
 	}
@@ -448,6 +453,7 @@ void AMortalCryCharacter::Use()
 	
 	if ( IsInventoryOpen() )
 	{
+		GetController()->SetIgnoreLookInput(false);
 		bIsInventoryOpen = false;
 		return;
 	}
@@ -576,6 +582,7 @@ float AMortalCryCharacter::GetHealth() const
 void AMortalCryCharacter::OpenInventory()
 {
 	GetWorldTimerManager().ClearTimer(InventoryTimer);
+	GetController()->SetIgnoreLookInput(true);
 	bIsInventoryOpen = true;
 }
 
