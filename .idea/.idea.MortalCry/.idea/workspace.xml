@@ -59,12 +59,37 @@
     <projectFile>Intermediate/ProjectFiles/BootstrapPackagedGame.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="New Map">
+    <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/HUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/InfoBlock.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/InfoBlock.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/PauseMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/PauseMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/Settings.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/Settings.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FPS_Assault_Pack/Blueprints/Rifle/BP_Rifle_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FPS_Assault_Pack/Blueprints/Rifle/BP_Rifle_Character.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonProjectile.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Collectable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Collectable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Collectable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Collectable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +99,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UI" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -156,9 +181,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Source/MortalCry/Possessive.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Possessive.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/SupportCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/SupportCharacter.cpp" />
       <option value="$PROJECT_DIR$/Plugins/SimpleUGC/SimpleUGC.uplugin" />
       <option value="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCPluginWizardDefinition.h" />
@@ -170,10 +192,7 @@
       <option value="$PROJECT_DIR$/Source/MortalCryEditor.Target.cs" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.cpp" />
       <option value="$PROJECT_DIR$/Plugins/NN/Source/NN/Private/NN.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/SupportPawn.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponB.h" />
       <option value="$PROJECT_DIR$/README.md" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCry.Build.cs" />
@@ -189,7 +208,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryGameMode.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Teams/TeamSettings.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Informative.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/NeuralNetwork/NeuralNetworkController.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/NeuralNetwork/NeuralNetworkController.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Teams/Team.h" />
@@ -200,13 +218,20 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Collectable.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Usable.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Collectable.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Collectable.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42544,6 +42569,10 @@
       <workItem from="1621808115523" duration="4196000" />
       <workItem from="1621821378051" duration="762000" />
       <workItem from="1621955131999" duration="3893000" />
+      <workItem from="1622016566523" duration="8933000" />
+      <workItem from="1622028283153" duration="113000" />
+      <workItem from="1622028449694" duration="549000" />
+      <workItem from="1622029076162" duration="9796000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
