@@ -142,16 +142,14 @@ bool UInventoryComponent::CanCollect(AActor* Item) const
 	if (!Item || !Item->Implements<UCollectable>()) { return false; }
 	if ( Items.Num() == MaxItems ) { return false; }
 
-	// const int32 ItemSize = ICollectable::Execute_GetSize(Item);
-	// int32 FreeSpace = Size;
-	//
-	// for ( const auto I : Items)
-	// {
-	// 	FreeSpace -= I.Amount;
-	// }
-	//
-	// return ItemSize <= FreeSpace;
-
-	return true;
+	const int32 ItemSize = ICollectable::Execute_GetSize(Item);
+	int32 FreeSpace = Size;
+	
+	for ( const auto I : Items)
+	{
+		FreeSpace -= I.Amount;
+	}
+	
+	return ItemSize <= FreeSpace;
 }
 
