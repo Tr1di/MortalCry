@@ -7,7 +7,7 @@ float UMortalCryMovementComponent::GetMaxSpeed() const
 {
 	float MaxSpeed = Super::GetMaxSpeed();
 
-	// А сюда добавишь код :)
+	// TODO: А сюда добавишь код :)
 	
 	return MaxSpeed;
 }

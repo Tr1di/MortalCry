@@ -61,17 +61,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Reload.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Reload.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonProjectile.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/NewBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/NewBlueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponM.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCPluginWizardDefinition.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCPluginWizardDefinition.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +157,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/SupportCharacter.cpp" />
       <option value="$PROJECT_DIR$/Plugins/SimpleUGC/SimpleUGC.uplugin" />
       <option value="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCPluginWizardDefinition.h" />
-      <option value="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCPluginWizardDefinition.cpp" />
       <option value="$PROJECT_DIR$/../../Unreal Engine/Engine/Plugins/Online/OnlineSubsystemSteam/Source/Private/OnlineSubsystemSteamPrivate.h" />
       <option value="$PROJECT_DIR$/../../Unreal Engine/Engine/Source/UE4Editor.Target.cs" />
       <option value="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGC/Private/UGCBaseGameInstance.cpp" />
@@ -201,7 +191,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/Usable.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" />
@@ -214,6 +203,8 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.cpp" />
+      <option value="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCPluginWizardDefinition.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42562,6 +42553,9 @@
       <workItem from="1622139394425" duration="3909000" />
       <workItem from="1622153322620" duration="970000" />
       <workItem from="1622174599353" duration="2099000" />
+      <workItem from="1622177352444" duration="158000" />
+      <workItem from="1622215823364" duration="4225000" />
+      <workItem from="1622232667352" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -42836,7 +42830,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622153647058</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Temp">
+      <created>1622177368307</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1622177368307</updated>
+    </task>
+    <task id="LOCAL-00041" summary="ModWeapon">
+      <created>1622177397071</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1622177397071</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -42868,7 +42876,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Init" />
     <MESSAGE value="Complete Patrol" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Remove leftover files &#10;Add Patrol_BT" />
@@ -42891,9 +42898,10 @@
     <MESSAGE value="New Map" />
     <MESSAGE value="Almost Final" />
     <MESSAGE value="Final" />
-    <MESSAGE value="Temp" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Temp" />
+    <MESSAGE value="ModWeapon" />
+    <option name="LAST_COMMIT_MESSAGE" value="ModWeapon" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
