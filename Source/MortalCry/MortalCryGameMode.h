@@ -13,9 +13,6 @@ class AMortalCryGameMode : public AGameModeBase
 
 public:
 	AMortalCryGameMode();
-	
-	UFUNCTION(BlueprintCallable)
-	void SwapPlayers();
 
 	virtual void StartPlay() override;
 };
