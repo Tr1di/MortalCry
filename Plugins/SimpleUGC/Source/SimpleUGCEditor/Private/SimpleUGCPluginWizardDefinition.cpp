@@ -20,7 +20,7 @@ FSimpleUGCPluginWizardDefinition::FSimpleUGCPluginWizardDefinition()
 
 void FSimpleUGCPluginWizardDefinition::PopulateTemplatesSource()
 {
-	// Find the Content Only Template that ships with the plugin. 
+	// Find the Content Only Template that ships with the plugin.
 	// Download the Robo Recall Mod Kit and check the Plugins/OdinEditor code for how to build and use your own UGC templates from your game content
 	BackingTemplate = MakeShareable(new FPluginTemplateDescription(FText(), FText(), TEXT("BaseTemplate"), true, EHostType::Runtime));
 	BackingTemplatePath = PluginBaseDir / TEXT("Templates") / BackingTemplate->OnDiskPath;
