@@ -17,24 +17,6 @@ AMortalCryGameMode::AMortalCryGameMode()
 	HUDClass = AMortalCryHUD::StaticClass();
 }
 
-void AMortalCryGameMode::SwapPlayers()
-{
-	TArray<APlayerController*> Controllers;
-	
-	for ( auto Controller = GetWorld()->GetPlayerControllerIterator(); Controller; ++Controller)
-	{
-		Controllers.Add(Controller->Get());
-	}
-
-	Controllers.RemoveAll([](APlayerController* C) { return !C; });
-	
-	if ( Controllers.Num() > 1 )
-	{
-		SwapPlayerControllers(Controllers[0],
-							SpawnPlayerController(ENetRole::ROLE_Authority, ""));
-	}
-}
-
 void AMortalCryGameMode::StartPlay()
 {
 	Super::StartPlay();
