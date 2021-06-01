@@ -103,16 +103,18 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "True"))
 	int32 MaxItems;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "True"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Replicated, Category = Inventory, meta = (AllowPrivateAccess = "True"))
 	TArray<FCollectedItem> Items;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "True"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = Inventory, meta = (AllowPrivateAccess = "True"))
 	AActor* EquippedItem;
 	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	
 public:
 	UFUNCTION(BlueprintCallable)
 	void Collect(AActor* Item);
@@ -120,19 +122,19 @@ public:
 	UFUNCTION(BlueprintCallable)
 	int32 Get(TSubclassOf<AActor> ItemClass, int32 Amount);
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Equip(int32 Index, bool IsValid);
 
-private:
-	void Collect(FCollectedItem Item);
-	
-	FCollectedItem GetItem(TSubclassOf<AActor> ItemClass) const;
-	
 protected:
+	UFUNCTION(Server, Reliable)
+	void CollectItem(FCollectedItem Item);
+	
 	UFUNCTION()
 	bool CanCollect(AActor* Item) const;
 	
-public:	
+public:
+	FCollectedItem GetItem(TSubclassOf<AActor> ItemClass) const;
+	
 	FORCEINLINE AActor* GetEquippedItem() const { return EquippedItem; }
 		
 };

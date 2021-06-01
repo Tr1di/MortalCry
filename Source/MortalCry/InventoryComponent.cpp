@@ -7,6 +7,7 @@
 #include "Informative.h"
 #include "Usable.h"
 #include "Kismet/GameplayStatics.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -30,6 +31,14 @@ void UInventoryComponent::BeginPlay()
 	
 }
 
+void UInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(UInventoryComponent, Items);
+	DOREPLIFETIME(UInventoryComponent, EquippedItem);
+}
+
 void UInventoryComponent::Collect(AActor* Item)
 {
 	if ( CanCollect(Item) )
@@ -42,13 +51,13 @@ void UInventoryComponent::Collect(AActor* Item)
 		NewCollectedItem.Description = IInformative::Execute_GetDescription(Item);
 		NewCollectedItem.Amount = ICollectable::Execute_GetSize(Item);
 		
-		Collect(NewCollectedItem);
+		CollectItem(NewCollectedItem);
 		
 		IInteractive::Execute_Interact(Item, GetOwner());
 	}
 }
 
-void UInventoryComponent::Collect(FCollectedItem Item)
+void UInventoryComponent::CollectItem_Implementation(FCollectedItem Item)
 {
 	if ( !Items.Contains(Item) )
 	{
@@ -60,7 +69,7 @@ void UInventoryComponent::Collect(FCollectedItem Item)
 		{
 			if (I == Item)
 			{
-				I += Item;
+				I += Item.Amount;
 			}
 		}
 	}
@@ -79,7 +88,7 @@ int32 UInventoryComponent::Get(TSubclassOf<AActor> ItemClass, int32 Amount)
 		const bool IsEnough = Item.Amount > Amount;
 		const int32 Result = IsEnough ? Amount : Item.Amount;
 		
-		Collect(SearchedItem);
+		CollectItem(SearchedItem);
 
 		if ( !IsEnough )
 		{
@@ -108,7 +117,7 @@ FCollectedItem UInventoryComponent::GetItem(TSubclassOf<AActor> ItemClass) const
 	return FCollectedItem();
 }
 
-void UInventoryComponent::Equip(int32 Index, bool IsValid)
+void UInventoryComponent::Equip_Implementation(int32 Index, bool IsValid)
 {
 	if ( GetEquippedItem() )
 	{
@@ -134,8 +143,6 @@ void UInventoryComponent::Equip(int32 Index, bool IsValid)
 		}
 	}
 }
-
-
 
 bool UInventoryComponent::CanCollect(AActor* Item) const
 {
