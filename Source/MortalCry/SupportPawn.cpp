@@ -3,8 +3,6 @@
 
 #include "SupportPawn.h"
 
-
-#include "MortalCryPlayerController.h"
 #include "Possessive.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Kismet/KismetSystemLibrary.h"
