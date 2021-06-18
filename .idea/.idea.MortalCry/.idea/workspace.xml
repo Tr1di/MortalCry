@@ -61,131 +61,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a4d9ef9b-df17-4f16-bccc-df19b16a1b92" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MortalCry/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/EQS/EnvQueryContext_Teammate.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/EQS/EnvQueryContext_Teammate.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/EQS/GenerateCoverPoints.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/EQS/GenerateCoverPoints.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/GetIntoCover.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/GetIntoCover.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/LeaveCover.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/LeaveCover.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ShootFromCover.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/ShootFromCover.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_AI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Patrol/Patrol_BT.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Patroling/ChangeNPCSpeed.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Train/BT_Train.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Train/BT_Train.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Train/TrainAI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Train/TrainAI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Train/TrainAIController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Train/TrainAIController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Arms/FirstPerson_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Arms/FirstPerson_AnimBP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/MCAnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/MCAnimBP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Reload.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Reload_Rifle_Hip_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/Animations/Reload_Rifle_Hip_Montage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvaController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvaController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/IvanBehaviorTree.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/Ivan_Blueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/AI/Ivan/Ivan_Blueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/CurvedHUD_FX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/CurvedHUD_FX_Inst.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/EquippedItemInfo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/HUD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/HealthWidget.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/HealthWidgetWorld.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/InfoBlock.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/MainMenu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/NewMaterial.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/NewWidgetBlueprint.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/PauseMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/HUD/PauseMenu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/Settings.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/HUD/UIT.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/ModTemplates/Weapons/ModGun.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPerson/FirstAid.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPerson/NewBlueprint.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/AmmoPack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/AmmoPack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_FPGun.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MCPlayerController.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_MortalCryHUD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/BP_SupportPawn.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/EditorCube21_Blueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/EditorCube21_Blueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/FirstPersonProjectile.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/MCWidget3DPassThrough_Masked.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/MainMenuGameMode.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/MortalCryTitle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/MortalCryTitle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/NewBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/NewBlueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/NewMaterial.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/ReloadForceFeedback.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/Reloadable.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TestCube.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/TestCube.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponM.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawnForceFeedback.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/WeaponPawnForceFeedback_ExternalCurve.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/Widget3DPassThrough.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Blueprints/Widget3DPassThrough_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/MainMenuMap.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/MainMenuMap_BuiltData.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/SanctuaryMainMenu.umap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/Patrol/Chasing/IsNearEnoughTo.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/Weapons/BP_FPGun.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/Weapons/BP_FPGun.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/Weapons/Rifle/Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/Weapons/Rifle/Rifle.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Sanctuary.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Sanctuary_Audio.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Sanctuary_Audio.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Splash/1622087728_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Splash/1622087728_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/ButtonIcon_40x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/ButtonIcon_40x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_128x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_128x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_16x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_16x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_48x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_48x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_64x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/CreateUGC_64x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/Icon128.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/Icon128.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_128x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_128x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_16x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_16x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_48x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_48x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_64x.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Resources/PackageUGC_64x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCCreator.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCEditor.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCEditorCommands.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCEditorStyle.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCPackager.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Private/SimpleUGCPluginWizardDefinition.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCCreator.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCEditor.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCEditorCommands.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCEditorStyle.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCPackager.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Source/SimpleUGCEditor/Public/SimpleUGCPluginWizardDefinition.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Templates/BaseTemplate/Resources/Icon128.png" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/SimpleUGC/Templates/BaseTemplate/Resources/Icon128.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/SimpleUGC/Templates/NewGun/Content/Blueprints/Weapons/MOD_NAME_Gun.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Collectable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Inventory/Collectable.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Collectable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Inventory/Collectable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Informative.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/UI/Informative.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Informative.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/UI/Informative.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Interactive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Interactive.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Interactive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Interactive.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Inventory/InventoryComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Inventory/InventoryComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/MortalCry.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCry.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/MortalCry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Character/MortalCryCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/MortalCryGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/MortalCryGameMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/UI/MortalCryHUD.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/UI/MortalCryHUD.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryMovementComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryMovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Character/MortalCryMovementComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Player/MortalCryPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Player/MortalCryPlayerController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryProjectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Ranged/MortalCryProjectile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/MortalCryProjectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Weapon/Ranged/MortalCryProjectile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/SupportPawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Teams/Team.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Team/Team.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Teams/TeamSettings.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Team/TeamSettings.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Teams/TeamSettings.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Team/TeamSettings.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Usable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Inventory/Usable.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Usable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Inventory/Usable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Ranged/RangedWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Weapon/Ranged/RangedWeapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Weapon/Weapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/WeaponBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Weapons/WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Weapon/WeaponBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Splash/EdSplash.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Splash/Splash.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryMovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryMovementComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Private/MortalCryGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Private/MortalCryGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MortalCry/Public/Character/MortalCryCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MortalCry/Public/Character/MortalCryCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +100,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Controller.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/DefaultPawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -229,6 +116,7 @@
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/UObject/Object.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Core/Public/Delegates/DelegateSignatureImpl.inl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/Components/SceneComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Build/Scripts/obj/Development/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Private/Player/MortalCryPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Components/SkinnedMeshComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/UObject/UObjectGlobals.h" root0="FORCE_HIGHLIGHTING" />
@@ -241,6 +129,7 @@
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/SkeletalMeshComponentPhysics.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Components/SkeletalMeshComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/UMG/Public/Blueprint/UserWidget.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Ranged/RangedWeaponBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Core/Public/UObject/ScriptDelegates.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -255,18 +144,21 @@
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/Templates/SubclassOf.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/Components/InputComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Public/Weapon/WeaponBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MortalCry/Private/Weapon/WeaponBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Public/MortalCry.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Public/UI/Informative.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Public/UI/MortalCryHUD.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Private/MortalCry.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Public/MortalCryGameMode.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MortalCry/Public/Interactive.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MortalCry/Public/Weapon/Ranged/ImpactEffect.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/LevelActor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Components/InputComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Build/Scripts/Properties/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Engine/World.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/HUD.h" root0="FORCE_HIGHLIGHTING" />
@@ -301,7 +193,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/Public/Weapon/Weapon.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/Ranged.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Weapons/RangedWeapon.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Private/MortalCryGameMode.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Ranged/RangedWeapon.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/UI/MortalCryHUD.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/Inventory/Usable.cpp" />
@@ -313,7 +204,6 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Ranged/RanedWeaponBase.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Public/Weapon/Ranged/RanedWeaponBase.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Public/Character/MortalCryMovementComponent.h" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryMovementComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Ranged/MortalCryProjectile.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Public/Character/HealthComponent.h" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Public/Inventory/Collectable.h" />
@@ -328,8 +218,10 @@
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/Team/TeamSettings.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/WeaponBase.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Private/Weapon/Ranged/RangedWeaponBase.cpp" />
-      <option value="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/MortalCry/Public/Character/MortalCryCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Private/MortalCryGameMode.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryMovementComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/MortalCry/Private/Character/MortalCryCharacter.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l9ij5QWPv31DKxmzLZvMofGUQ1" />
@@ -42710,7 +42602,9 @@
       <workItem from="1623692732698" duration="10501000" />
       <workItem from="1623776577399" duration="50000" />
       <workItem from="1623860808774" duration="268000" />
-      <workItem from="1623964847387" duration="2907000" />
+      <workItem from="1623964847387" duration="4129000" />
+      <workItem from="1623971991386" duration="789000" />
+      <workItem from="1623976492076" duration="1022000" />
     </task>
     <task id="LOCAL-00001" summary="UGC">
       <created>1613294292219</created>
@@ -43034,7 +42928,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622590926062</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Mortal Cry v2.0">
+      <created>1623968280226</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1623968280226</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -43066,7 +42967,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Remove leftover files &#10;Add Patrol_BT" />
     <MESSAGE value="Move Team Files To Teams Directory" />
     <MESSAGE value="Setup Hud" />
     <MESSAGE value="Delete Plugins" />
@@ -43091,7 +42991,8 @@
     <MESSAGE value="Da" />
     <MESSAGE value="Fix inventory" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Mortal Cry v2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mortal Cry v2.0" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

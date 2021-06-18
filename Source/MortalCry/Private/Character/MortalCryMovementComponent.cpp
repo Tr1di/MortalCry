@@ -130,6 +130,10 @@ float UMortalCryMovementComponent::GetMaxSpeed() const
 		{
 			MaxSpeed *= 0.1f;
 		}
+		if ( Character->IsTargeting() )
+		{
+			MaxSpeed *= 0.5;
+		}
 	}
 	
 	return MaxSpeed;

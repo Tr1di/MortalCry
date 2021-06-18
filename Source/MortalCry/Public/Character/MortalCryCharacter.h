@@ -185,10 +185,10 @@ protected:
 	void StopAlterAttack();
 	
 	UFUNCTION(BlueprintCallable)
-	void Action();
+	void Targeting();
 	
 	UFUNCTION(BlueprintCallable)
-	void StopAction();
+	void StopTargeting();
 	
 	UFUNCTION(BlueprintCallable)
 	void AlterAction();

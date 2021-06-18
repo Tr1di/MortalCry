@@ -115,8 +115,8 @@ void AMortalCryCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("AlterAttack", IE_Pressed, this, &AMortalCryCharacter::AlterAttack);
 	PlayerInputComponent->BindAction("AlterAttack", IE_Released, this, &AMortalCryCharacter::StopAlterAttack);
 
-	PlayerInputComponent->BindAction("Action", IE_Pressed, this, &AMortalCryCharacter::Action);
-	PlayerInputComponent->BindAction("Action", IE_Released, this, &AMortalCryCharacter::StopAction);
+	PlayerInputComponent->BindAction("Action", IE_Pressed, this, &AMortalCryCharacter::Targeting);
+	PlayerInputComponent->BindAction("Action", IE_Released, this, &AMortalCryCharacter::StopTargeting);
 
 	PlayerInputComponent->BindAction("AlterAction", IE_Pressed, this, &AMortalCryCharacter::AlterAction);
 	PlayerInputComponent->BindAction("AlterAction", IE_Released, this, &AMortalCryCharacter::StopAlterAction);
@@ -286,16 +286,20 @@ void AMortalCryCharacter::StopAlterAttack()
 	}
 }
 
-void AMortalCryCharacter::Action()
+void AMortalCryCharacter::Targeting()
 {
 	if ( CurrentWeapon )
 	{
 		bTargeting = true;
+		if (GetMortalCryMovement()->IsRunning())
+		{
+			StopRunning();
+		}
 		OnTargeting();
 	}
 }
 
-void AMortalCryCharacter::StopAction()
+void AMortalCryCharacter::StopTargeting()
 {
 	if ( CurrentWeapon )
 	{
@@ -592,6 +596,11 @@ void AMortalCryCharacter::Run()
 		if (bIsCrouched)
 		{
 			UnCrouch();
+		}
+
+		if (IsTargeting())
+		{
+			StopTargeting();
 		}
 		
 		GetMortalCryMovement()->OnStartRunning();
